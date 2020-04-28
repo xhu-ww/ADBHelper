@@ -1,0 +1,42 @@
+<idea-plugin>
+    <id>cn.xhuww.ADBHelper</id>
+    <name>ADBHelper</name>
+    <vendor email="xhuww2012@gmail.com" url="http://www.xhuww.cn">xhuww</vendor>
+
+    <description><![CDATA[
+    Push_HelperPush_HelperPush_HelperPush_HelperPush_HelperPush_HelperPush_Helper.<br>
+    <em>Push_HelperPush_HelperPush_HelperPush_HelperPush_Helper</em>
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.xml</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+
+        <group id="adb_menu" text="ADB" description="ADB helper">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+
+            <action id="cn.xhuww.adb.action.GetAppStartTimeAction" class="cn.xhuww.adb.action.GetAppStartTimeAction"
+                    text="AppStartTime" description="Start app and capture app start time">
+            </action>
+
+            <action id="cn.xhuww.adb.action.GetDeviceIpAction" class="cn.xhuww.adb.action.GetDeviceIpAction"
+                    text="DeviceIp" description="Get device ip">
+            </action>
+
+            <action id="cn.xhuww.adb.action.GetDumpsysAction" class="cn.xhuww.adb.action.GetDumpsysAction"
+                    text="Dumpsys" description="Get device Dumpsys">
+            </action>
+
+        </group>
+    </actions>
+
+</idea-plugin>
