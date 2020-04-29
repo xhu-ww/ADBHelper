@@ -1,5 +1,6 @@
 package cn.xhuww.adb
 
+import cn.xhuww.adb.data.ProjectRunData
 import com.android.ddmlib.AndroidDebugBridge
 import com.android.ddmlib.IDevice
 import com.android.tools.idea.gradle.project.sync.GradleSyncState
@@ -11,7 +12,7 @@ import org.jetbrains.android.facet.AndroidFacet
 import org.jetbrains.android.sdk.AndroidSdkUtils
 import org.jetbrains.android.util.AndroidUtils
 
-class ProjectManager(private val project: Project) {
+class ProjectManager(val project: Project) {
     private val androidBridge: AndroidDebugBridge? by lazy {
         AndroidSdkUtils.getDebugBridge(project)
     }
@@ -46,5 +47,20 @@ class ProjectManager(private val project: Project) {
         } else {
             return connectedDevices.firstOrNull()
         }
+    }
+
+    fun getProjectRunData(): ProjectRunData {
+        if (GradleSyncState.getInstance(project).isSyncInProgress) {
+            error("Gradle sync task is running")
+        }
+        if (!bridgeIsReady()) {
+            error("Currently no device is connected")
+        }
+        val facet = getAndroidFacet()
+        val device = getConnectedDevice()
+        if (facet == null || device == null) {
+            error("Current project was not compiled successfully")
+        }
+        return ProjectRunData(facet, device)
     }
 }
