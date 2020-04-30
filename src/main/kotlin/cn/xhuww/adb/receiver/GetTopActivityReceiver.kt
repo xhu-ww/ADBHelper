@@ -6,8 +6,7 @@ import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.ui.messages.MessageDialog
 
 class GetTopActivityReceiver : ADBMessageReceiver() {
-    override fun done(messageLines: List<String>) {
-        val message = if (messageLines.isEmpty()) "No message" else messageLines.joinToString(separator = "")
+    override fun done(message: String) {
         val array = message.split("/")
         if (array.size == 2) {
             val packageName = array[0].split(" ").last()

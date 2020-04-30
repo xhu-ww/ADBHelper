@@ -12,12 +12,9 @@ open class ADBMessageReceiver : MultiLineReceiver() {
 
     override fun done() {
         super.done()
-        done(messageLines)
         val message = if (messageLines.isEmpty()) "No message" else messageLines.joinToString(separator = "")
         done(message)
     }
-
-    open fun done(messageLines: List<String>) {}
 
     open fun done(message: String) {}
 }
