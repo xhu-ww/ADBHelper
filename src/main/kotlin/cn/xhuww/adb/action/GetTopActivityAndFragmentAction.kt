@@ -1,20 +1,28 @@
 package cn.xhuww.adb.action
 
-import cn.xhuww.adb.ProjectManager
-import com.android.tools.idea.gradle.project.model.AndroidModuleModel
+import cn.xhuww.adb.data.ProjectRunData
+import cn.xhuww.adb.receiver.GetActivityFragmentsReceiver
+import cn.xhuww.adb.receiver.GetTopActivityReceiver
 import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.project.Project
-import java.util.concurrent.TimeUnit
 
 class GetTopActivityAndFragmentAction : ADBAction() {
-    override fun actionPerformed(e: AnActionEvent, project: Project) {
-        val projectRunData = ProjectManager(project).getProjectRunData()
-        val facet = projectRunData.facet
+    override fun actionPerformed(e: AnActionEvent, projectRunData: ProjectRunData) {
         val device = projectRunData.device
-        val packageName = AndroidModuleModel.get(facet)?.applicationId ?: error("Could not get the package name")
+        val receiver = GetTopActivityReceiver { packageName, activityName ->
+            //3. 展示详细信息
+            try {
+                //2. 获取Activity 的详细信息
+                val shell = "dumpsys activity $packageName/$activityName"
+                device.executeShellCommand(shell, GetActivityFragmentsReceiver())
+            } catch (e: Exception) {
+                error(e)
+            }
+        }
+
         try {
-            val shell = "dumpsys activity $packageName"
-            device.executeShellCommand(shell, StartActivityReceiver(project), 10, TimeUnit.SECONDS)
+            //1. 获取当前画面的Activity名称
+            val shell = "dumpsys window | grep mCurrentFocus"
+            projectRunData.device.executeShellCommand(shell, receiver)
         } catch (e: Exception) {
             error(e)
         }

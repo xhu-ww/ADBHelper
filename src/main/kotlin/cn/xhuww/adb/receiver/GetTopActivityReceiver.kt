@@ -1,23 +1,23 @@
 package cn.xhuww.adb.receiver
 
-import cn.xhuww.adb.view.TopActivityMessageDialogWrapper
-
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.ui.messages.MessageDialog
 
-class GetTopActivityReceiver : ADBMessageReceiver() {
+class GetTopActivityReceiver(
+        val messageReceiverDone: (packageName: String, activityName: String) -> Unit
+) : ADBMessageReceiver() {
     override fun done(message: String) {
         val array = message.split("/")
         if (array.size == 2) {
             val packageName = array[0].split(" ").last()
             val activityName = array[1].replace("}", "")
-            TopActivityMessageDialogWrapper(packageName, activityName).show()
+            messageReceiverDone(packageName, activityName)
         } else {
             MessageDialog(message,
                     "ADB Message",
                     arrayOf(Messages.CANCEL_BUTTON),
                     0,
-                    null
+                    Messages.getInformationIcon()
             ).show()
         }
     }

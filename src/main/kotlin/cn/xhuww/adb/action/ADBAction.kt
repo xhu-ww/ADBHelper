@@ -1,14 +1,15 @@
 package cn.xhuww.adb.action
 
+import cn.xhuww.adb.ProjectManager
+import cn.xhuww.adb.data.ProjectRunData
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.actionSystem.PlatformDataKeys
-import com.intellij.openapi.project.Project
 
 abstract class ADBAction : AnAction() {
     override fun actionPerformed(e: AnActionEvent) {
-        e.getData(PlatformDataKeys.PROJECT)?.let { actionPerformed(e, it) }
+        val project = e.project ?: error("project is error")
+        actionPerformed(e, ProjectManager(project).getProjectRunData())
     }
 
-    abstract fun actionPerformed(e: AnActionEvent, project: Project)
+    abstract fun actionPerformed(e: AnActionEvent, projectRunData: ProjectRunData)
 }

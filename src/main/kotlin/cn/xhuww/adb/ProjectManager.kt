@@ -61,6 +61,6 @@ class ProjectManager(val project: Project) {
         if (facet == null || device == null) {
             error("Current project was not compiled successfully")
         }
-        return ProjectRunData(facet, device)
+        return ProjectRunData(project, facet, device)
     }
 }

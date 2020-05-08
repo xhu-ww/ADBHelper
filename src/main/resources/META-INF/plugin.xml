@@ -32,11 +32,6 @@
                     text="DeviceIp" description="Get device ip">
             </action>
 
-            <action id="cn.xhuww.adb.action.GetTopActivityAction"
-                    class="cn.xhuww.adb.action.GetTopActivityAction"
-                    text="TopActivity" description="Get top activity name">
-            </action>
-
             <action id="cn.xhuww.adb.action.GetTopActivityAndFragmentAction"
                     class="cn.xhuww.adb.action.GetTopActivityAndFragmentAction"
                     text="TopActivityAndFragments" description="Get top activity and its fragment">
