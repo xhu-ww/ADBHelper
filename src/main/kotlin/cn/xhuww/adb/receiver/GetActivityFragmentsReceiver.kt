@@ -1,57 +1,53 @@
 package cn.xhuww.adb.receiver
 
-import com.intellij.openapi.ui.Messages
-import com.intellij.openapi.ui.messages.MessageDialog
+import cn.xhuww.adb.data.FragmentInfo
 
-class GetActivityFragmentsReceiver() : ADBMessageReceiver() {
-    override fun done(message: String) {
-        super.done(message)
-        parsingMessage(message)
-
-
-    }
-
-    fun parsingMessage(log: String) {
-        val list = getAddedFragments(log)
-        val fragments = ArrayList<String>()
-        val len = list.size - 1
-        for (i in 0..len) {
-            val startIndex = log.lastIndexOf(list[i])
-            val endIndex = if (i == len) log.lastIndex else log.lastIndexOf(list[i + 1])
-            if (startIndex == -1 || endIndex == -1 || startIndex >= endIndex) return
-            val fragmentLog = log.substring(startIndex, endIndex)
-            fragments.addAll(getAddedFragments(fragmentLog))
+class GetActivityFragmentsReceiver(
+        val messageReceiverDone: (fragmentInfos: ArrayList<FragmentInfo>?) -> Unit
+) : ADBMessageReceiver() {
+    override fun done(logLines: List<String>) {
+        val fragmentLogs = ArrayList<String>()
+        var hasFragments = false
+        for (line in logLines) {
+            if (hasFragments) {
+                if (line.contains(Regex("#[0-9]:"))) fragmentLogs.add(line)
+            } else {
+                hasFragments = line.contains(Regex("Local FragmentActivity.*State:"))
+            }
         }
 
-        MessageDialog(fragments.joinToString { "\n" },
-                "ADB Message",
-                arrayOf(Messages.CANCEL_BUTTON),
-                0,
-                Messages.getInformationIcon()
-        ).show()
+        var lastSpaceNum = -1
+        var currentLevel = -1
+        val map = LinkedHashMap<Int, ArrayList<FragmentInfo>>()
+
+        for (fragment in fragmentLogs.toSet()) {
+            val spaceNum = getLeftSpaceNum(fragment)
+            if (spaceNum > lastSpaceNum)
+                currentLevel++
+            else if (spaceNum < lastSpaceNum)
+                currentLevel--
+
+            val fragmentInfo = FragmentInfo(fragment, ArrayList())
+
+            if (map.containsKey(currentLevel)) {
+                map[currentLevel]?.add(fragmentInfo)
+            } else {
+                map[currentLevel] = arrayListOf(fragmentInfo)
+            }
+            if (currentLevel > 0) {
+                map[currentLevel - 1]?.lastOrNull()?.childFragment?.add(fragmentInfo)
+            }
+            lastSpaceNum = spaceNum
+        }
+        messageReceiverDone(map[0])
     }
 
-    private fun getAddedFragments(log: String): List<String> {
-        val startIndex = log.lastIndexOf("Added Fragments:")
-        val endIndex = log.lastIndexOf("FragmentManager misc state:")
-        if (startIndex == -1 || endIndex == -1 || startIndex >= endIndex) return emptyList()
-
-        val addedFragmentMessage = log.substring(startIndex, endIndex)
-        val map = LinkedHashMap<String, String>()
-        Regex("#[0-9]:.*")
-                .findAll(addedFragmentMessage)
-                .toList()
-                .flatMap { matchResult: MatchResult -> matchResult.groupValues }
-                .map {
-                    val array = it.split(": ")
-                    Pair(array.first(), it)
-                }
-                .forEach {
-                    val key = it.first
-                    if (!map.containsKey(key)) {
-                        map[key] = it.second
-                    }
-                }
-        return map.values.toList()
+    private fun getLeftSpaceNum(string: String): Int {
+        var spaceNum = 0
+        val len = string.length
+        for (i in 0..len) {
+            if (string[i] == ' ') spaceNum++ else break
+        }
+        return spaceNum
     }
 }

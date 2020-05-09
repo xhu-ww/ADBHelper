@@ -6,5 +6,5 @@ public class TopActivityMessageDialog {
     public JPanel root;
     public JTextField textPackageName;
     public JTextField textActivityName;
-    private JList list1;
+    public JTree fragmentTree;
 }
