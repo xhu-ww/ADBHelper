@@ -1,6 +1,5 @@
-import cn.xhuww.adb.data.FragmentInfo
-import com.intellij.util.containers.toMutableSmartList
-import com.intellij.util.io.encodeUrlQueryParameter
+import com.jetbrains.rd.util.first
+import javax.swing.tree.DefaultMutableTreeNode
 
 fun main() {
     var message = "TASK com.xflag.store.staging.debug id=330 userId=0\n" +
@@ -355,41 +354,48 @@ fun main() {
         }
     }
 
-    var lastLevel = -1
-    val fragmentInfos = ArrayList<FragmentLogInfo>()
+    val map = LinkedHashMap<Int, ArrayList<FragmentLogInfo>>()
+    var lastSpace = getLeftSpaceNum(list.first())
+    var lastFragment = FragmentLogInfo(list.first(), ArrayList())
+    map[lastSpace] = arrayListOf(lastFragment)
 
-    for (i in 0..list.lastIndex) {
+    for (i in 1..list.lastIndex) {
         val str = list[i]
-        val level = getLeftSpaceNum(str)
-
-        val parentPosition = when {
-            level > lastLevel -> i - 1
-            level < lastLevel -> {
-                var position = -1
-                for (info in fragmentInfos) {
-                    if (info.level == level) {
-                        position = info.parentPosition
-                    }
-                }
-                position
-            }
-            else -> fragmentInfos[i - 1].parentPosition
+        val space = getLeftSpaceNum(str)
+        val info = FragmentLogInfo(list[i], ArrayList())
+        if (map.containsKey(space)) {
+            map[space]?.add(info)
+        } else {
+            map[space] = arrayListOf(info)
         }
-        fragmentInfos.add(FragmentLogInfo(i, parentPosition, level, str))
-        lastLevel = level
+        when {
+            space > lastSpace -> {
+                info.parentFragment = lastFragment
+                lastFragment.childFragments.add(info)
+            }
+            space < lastSpace -> {
+                map[space]?.lastOrNull()?.parentFragment?.childFragments?.add(info)
+            }
+            else -> {
+                lastFragment.parentFragment?.childFragments?.add(info)
+            }
+        }
+        lastSpace = space
+        lastFragment = info
     }
 
-
+    map.first().value.forEach {
+        print("${it.name} \n ${it.childFragments.toString()}")
+    }
 }
 
+class FragmentLogInfo(
+        val name: String,
+        val childFragments: ArrayList<FragmentLogInfo>
+) {
+    var parentFragment: FragmentLogInfo? = null
 
-data class FragmentLogInfo(
-        val currentPosition: Int,
-        // -1 则代表自身为根节点
-        val parentPosition: Int,
-        val level: Int,
-        val name: String
-)
+}
 
 private fun getLeftSpaceNum(string: String): Int {
     var spaceNum = 0

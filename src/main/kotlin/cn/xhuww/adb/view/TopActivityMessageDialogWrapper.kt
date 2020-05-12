@@ -19,17 +19,6 @@ class TopActivityMessageDialogWrapper(
         init()
     }
 
-    private fun createTreeNode(
-            parentNode: DefaultMutableTreeNode,
-            fragmentInfo: FragmentInfo
-    ) {
-        val node = DefaultMutableTreeNode(fragmentInfo.name)
-        for (childFragment in fragmentInfo.childFragment) {
-            createTreeNode(node, childFragment)
-        }
-        parentNode.add(node)
-    }
-
     override fun createCenterPanel(): JComponent? {
         val dialog = TopActivityMessageDialog()
         dialog.textPackageName.text = packageName
@@ -37,15 +26,16 @@ class TopActivityMessageDialogWrapper(
 
         if (fragmentInfos?.isNotEmpty() == true) {
             val rootNode = DefaultMutableTreeNode(activityName)
-            for (fragmentInfo in fragmentInfos) {
-                createTreeNode(rootNode, fragmentInfo)
-            }
+
+            fragmentInfos.forEach { rootNode.add(getChildNode(it)) }
             dialog.fragmentTree.apply {
                 val render = cellRenderer as DefaultTreeCellRenderer
                 render.closedIcon = ImageIcon("icons/ic_add.png")
                 render.openIcon = ImageIcon("icons/ic_minus.png")
                 model = DefaultTreeModel(rootNode)
             }
+
+            dialog.fragmentTree.model = DefaultTreeModel(rootNode)
         } else {
             dialog.fragmentTree.isVisible = false
         }
@@ -56,5 +46,14 @@ class TopActivityMessageDialogWrapper(
     override fun createActions(): Array<Action> {
         val action = cancelAction.apply { putValue(DEFAULT_ACTION, true) }
         return arrayOf(action)
+    }
+
+    private fun getChildNode(fragment: FragmentInfo): DefaultMutableTreeNode {
+        val node = DefaultMutableTreeNode(fragment.name)
+        for (childFragment in fragment.childFragments) {
+            val childNode = getChildNode(childFragment)
+            node.add(childNode)
+        }
+        return node
     }
 }

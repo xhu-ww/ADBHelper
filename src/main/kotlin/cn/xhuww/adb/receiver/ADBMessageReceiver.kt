@@ -1,23 +1,21 @@
 package cn.xhuww.adb.receiver
 
-import com.android.ddmlib.MultiLineReceiver
+import com.android.ddmlib.IShellOutputReceiver
+import com.google.common.base.Charsets
 
-open class ADBMessageReceiver : MultiLineReceiver() {
-    private var logLines: MutableList<String> = ArrayList()
-    override fun processNewLines(strings: Array<out String>) {
-        logLines.addAll(strings)
+open class ADBMessageReceiver : IShellOutputReceiver {
+    private val stringBuffer = StringBuilder()
+
+    override fun addOutput(data: ByteArray, offset: Int, length: Int) {
+        val s = String(data, offset, length, Charsets.UTF_8)
+        stringBuffer.append(s)
+    }
+
+    override fun flush() {
+        done(stringBuffer.toString())
     }
 
     override fun isCancelled(): Boolean = false
-
-    override fun done() {
-        super.done()
-        done(logLines)
-        val log = if (logLines.isEmpty()) "No message" else logLines.joinToString(separator = "\n")
-        done(log)
-    }
-
-    open fun done(logLines: List<String>) {}
 
     open fun done(log: String) {}
 }

@@ -1,45 +1,59 @@
 package cn.xhuww.adb.receiver
 
 import cn.xhuww.adb.data.FragmentInfo
+import com.jetbrains.rd.util.firstOrNull
 
 class GetActivityFragmentsReceiver(
         val messageReceiverDone: (fragmentInfos: ArrayList<FragmentInfo>?) -> Unit
 ) : ADBMessageReceiver() {
-    override fun done(logLines: List<String>) {
-        val fragmentLogs = ArrayList<String>()
+    override fun done(log: String) {
+        val list = ArrayList<String>()
         var hasFragments = false
-        for (line in logLines) {
+        log.reader().readLines().forEach {
             if (hasFragments) {
-                if (line.contains(Regex("#[0-9]:"))) fragmentLogs.add(line)
+                if (it.contains(Regex("#[0-9]:"))) list.add(it)
             } else {
-                hasFragments = line.contains(Regex("Local FragmentActivity.*State:"))
+                hasFragments = it.contains(Regex("Local FragmentActivity.*State:"))
             }
         }
 
-        var lastSpaceNum = -1
-        var currentLevel = -1
-        val map = LinkedHashMap<Int, ArrayList<FragmentInfo>>()
+        // To get rid of duplicate content
+        val map = LinkedHashMap<Int, ArrayList<Pair<String, FragmentInfo>>>()
 
-        for (fragment in fragmentLogs.toSet()) {
-            val spaceNum = getLeftSpaceNum(fragment)
-            if (spaceNum > lastSpaceNum)
-                currentLevel++
-            else if (spaceNum < lastSpaceNum)
-                currentLevel--
+        val firstLog = list.first()
+        val pair = getFragmentName(firstLog)
+        var lastSpace = getLeftSpaceNum(firstLog)
+        var lastFragment = FragmentInfo(pair.second, ArrayList())
+        map[lastSpace] = arrayListOf(Pair(pair.first, lastFragment))
 
-            val fragmentInfo = FragmentInfo(fragment, ArrayList())
-
-            if (map.containsKey(currentLevel)) {
-                map[currentLevel]?.add(fragmentInfo)
+        for (i in 1..list.lastIndex) {
+            val log = list[i]
+            val space = getLeftSpaceNum(log)
+            val logPair = getFragmentName(log)
+            val fragment = FragmentInfo(logPair.second, ArrayList())
+            if (map.containsKey(space)) {
+                map[space]?.add(Pair(logPair.first, fragment))
             } else {
-                map[currentLevel] = arrayListOf(fragmentInfo)
+                map[space] = arrayListOf(fragment)
             }
-            if (currentLevel > 0) {
-                map[currentLevel - 1]?.lastOrNull()?.childFragment?.add(fragmentInfo)
+
+            when {
+                space > lastSpace -> {
+                    fragment.parentFragment = lastFragment
+                    lastFragment.childFragments.add(fragment)
+                }
+                space < lastSpace -> {
+                    map[space]?.lastOrNull()?.second?.parentFragment?.childFragments?.add(fragment)
+                }
+                else -> {
+                    lastFragment.parentFragment?.childFragments?.add(fragment)
+                }
             }
-            lastSpaceNum = spaceNum
+            lastSpace = space
+            lastFragment = fragment
         }
-        messageReceiverDone(map[0])
+
+        messageReceiverDone(map.firstOrNull()?.value)
     }
 
     private fun getLeftSpaceNum(string: String): Int {
@@ -49,5 +63,14 @@ class GetActivityFragmentsReceiver(
             if (string[i] == ' ') spaceNum++ else break
         }
         return spaceNum
+    }
+
+    /**
+     * first is number
+     * second is name
+     */
+    private fun getFragmentName(log: String): Pair<String, String> {
+        val array = log.split(": ")
+        return Pair(array.first(), array.last())
     }
 }
