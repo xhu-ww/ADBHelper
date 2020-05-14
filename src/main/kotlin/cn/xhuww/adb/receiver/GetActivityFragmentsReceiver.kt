@@ -1,59 +1,42 @@
 package cn.xhuww.adb.receiver
 
-import cn.xhuww.adb.data.FragmentInfo
-import com.jetbrains.rd.util.firstOrNull
-
-class GetActivityFragmentsReceiver(
-        val messageReceiverDone: (fragmentInfos: ArrayList<FragmentInfo>?) -> Unit
-) : ADBMessageReceiver() {
+class GetActivityFragmentsReceiver(val messageReceiverDone: (fragmentMessage: String) -> Unit) : ADBMessageReceiver() {
     override fun done(log: String) {
         val list = ArrayList<String>()
-        var hasFragments = false
-        log.reader().readLines().forEach {
-            if (hasFragments) {
-                if (it.contains(Regex("#[0-9]:"))) list.add(it)
-            } else {
-                hasFragments = it.contains(Regex("Local FragmentActivity.*State:"))
-            }
-        }
+        val map = LinkedHashMap<String, String>()
 
-        // To get rid of duplicate content
-        val map = LinkedHashMap<Int, ArrayList<Pair<String, FragmentInfo>>>()
-
-        val firstLog = list.first()
-        val pair = getFragmentName(firstLog)
-        var lastSpace = getLeftSpaceNum(firstLog)
-        var lastFragment = FragmentInfo(pair.second, ArrayList())
-        map[lastSpace] = arrayListOf(Pair(pair.first, lastFragment))
-
-        for (i in 1..list.lastIndex) {
-            val log = list[i]
-            val space = getLeftSpaceNum(log)
-            val logPair = getFragmentName(log)
-            val fragment = FragmentInfo(logPair.second, ArrayList())
-            if (map.containsKey(space)) {
-                map[space]?.add(Pair(logPair.first, fragment))
-            } else {
-                map[space] = arrayListOf(fragment)
-            }
-
-            when {
-                space > lastSpace -> {
-                    fragment.parentFragment = lastFragment
-                    lastFragment.childFragments.add(fragment)
+        log.split(Regex("Local FragmentActivity.*State:"))
+                .lastOrNull()?.run {
+                    var lastSpace = -1
+                    var addFragment = false
+                    reader().readLines()
+                            .filter {
+                                it.contains(Regex("#[0-9]:"))
+                                        || it.contains("Added Fragments:")
+                                        || it.contains("mParent=")
+                            }.forEach {
+                                val space = getLeftSpaceNum(it)
+                                if (it.contains("Added Fragments:")) {
+                                    list.add(" ")
+                                    addFragment = true
+                                }
+                                if (space < lastSpace && !it.contains("Added Fragments:")) {
+                                    addFragment = false
+                                }
+                                if (addFragment) {
+                                    val key = it.split(": ").first()
+                                    if (!map.containsKey(key)) {
+                                        map[key] = it
+                                        list.add(it)
+                                    }
+                                } else {
+                                    map.clear()
+                                }
+                                lastSpace = space
+                            }
                 }
-                space < lastSpace -> {
-                    map[space]?.lastOrNull()?.second?.parentFragment?.childFragments?.add(fragment)
-                }
-                else -> {
-                    lastFragment.parentFragment?.childFragments?.add(fragment)
-                }
-            }
-            lastSpace = space
-            lastFragment = fragment
-        }
 
-        messageReceiverDone(map.firstOrNull()?.value)
+        messageReceiverDone(list.joinToString("\n"))
     }
 
     private fun getLeftSpaceNum(string: String): Int {
@@ -63,14 +46,5 @@ class GetActivityFragmentsReceiver(
             if (string[i] == ' ') spaceNum++ else break
         }
         return spaceNum
-    }
-
-    /**
-     * first is number
-     * second is name
-     */
-    private fun getFragmentName(log: String): Pair<String, String> {
-        val array = log.split(": ")
-        return Pair(array.first(), array.last())
     }
 }

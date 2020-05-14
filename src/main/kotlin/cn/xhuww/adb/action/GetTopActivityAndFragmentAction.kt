@@ -1,6 +1,5 @@
 package cn.xhuww.adb.action
 
-import cn.xhuww.adb.data.FragmentInfo
 import cn.xhuww.adb.data.ProjectRunData
 import cn.xhuww.adb.receiver.GetActivityFragmentsReceiver
 import cn.xhuww.adb.receiver.GetTopActivityReceiver
@@ -12,7 +11,7 @@ class GetTopActivityAndFragmentAction : ADBAction() {
         val device = projectRunData.device
         val receiver = GetTopActivityReceiver { packageName, activityName ->
             //3. 展示详细信息
-            val handleMessage: (fragmentInfos: ArrayList<FragmentInfo>?) -> Unit = {
+            val handleMessage: (fragmentInfos: String) -> Unit = {
                 TopActivityMessageDialogWrapper(packageName, activityName, it).show()
             }
 

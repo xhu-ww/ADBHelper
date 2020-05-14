@@ -2,48 +2,33 @@ import com.jetbrains.rd.util.first
 import javax.swing.tree.DefaultMutableTreeNode
 
 fun main() {
-    var message = "TASK com.xflag.store.staging.debug id=330 userId=0\n" +
-            "  ACTIVITY com.xflag.store.staging.debug/com.xflag.store.view.activity.B0101MainActivity 378f879 pid=27145\n" +
-            "    Local Activity 201126b State:\n" +
+    var message = "TASK com.zhihu.android id=1134 userId=0\n" +
+            "  ACTIVITY com.zhihu.android/.app.ui.activity.HostActivity 37a3e09 pid=22163\n" +
+            "    Local Activity b6948f9 State:\n" +
             "      mResumed=true mStopped=false mFinished=false\n" +
             "      mChangingConfigurations=false\n" +
-            "      mCurrentConfig={1.0 460mcc1mnc [zh_CN_#Hans,zh_CN,en_CN] ldltr sw360dp w360dp h755dp 480dpi nrml long port finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2340) mAppBounds=Rect(0, 75 - 1080, 2340) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} suim:1 s.3}\n" +
+            "      mCurrentConfig={1.0 460mcc1mnc [zh_CN_#Hans,zh_CN,en_CN] ldltr sw360dp w360dp h755dp 480dpi nrml long port finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2340) mAppBounds=Rect(0, 75 - 1080, 2340) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} suim:1 s.1}\n" +
             "      mLoadersStarted=true\n" +
-            "      Active Fragments in 89c7728:\n" +
-            "        #0: ReportFragment{49d867e #0 android.arch.lifecycle.LifecycleDispatcher.report_fragment_tag}\n" +
-            "          mFragmentId=#0 mContainerId=#0 mTag=android.arch.lifecycle.LifecycleDispatcher.report_fragment_tag\n" +
+            "      Active Fragments in 4f1e6d3:\n" +
+            "        #0: s{985c210 #0 androidx.lifecycle.LifecycleDispatcher.report_fragment_tag}\n" +
+            "          mFragmentId=#0 mContainerId=#0 mTag=androidx.lifecycle.LifecycleDispatcher.report_fragment_tag\n" +
             "          mState=5 mIndex=0 mWho=android:fragment:0 mBackStackNesting=0\n" +
             "          mAdded=true mRemoving=false mFromLayout=false mInLayout=false\n" +
             "          mHidden=false mDetached=false mMenuVisible=true mHasMenu=false\n" +
             "          mRetainInstance=false mRetaining=false mUserVisibleHint=true\n" +
-            "          mFragmentManager=FragmentManager{89c7728 in HostCallbacks{980d7df}}\n" +
-            "          mHost=android.app.Activity HostCallbacks@980d7df\n" +
-            "          Child FragmentManager{31c0c2c in ReportFragment{49d867e}}:\n" +
+            "          mFragmentManager=FragmentManager{4f1e6d3 in HostCallbacks{774b109}}\n" +
+            "          mHost=android.app.ActivityHostCallbacks@774b109\n" +
+            "          Child FragmentManager{964f0e in s{985c210}}:\n" +
             "            FragmentManager misc state:\n" +
-            "              mHost=android.app.Activity HostCallbacks@980d7df\n" +
-            "              mContainer=android.app.Fragment1@4aec6f5\n" +
-            "              mParent=ReportFragment{49d867e #0 android.arch.lifecycle.LifecycleDispatcher.report_fragment_tag}\n" +
-            "              mCurState=5 mStateSaved=false mDestroyed=false\n" +
-            "        #1: RequestManagerFragment{5878c8a #1 com.bumptech.glide.manager}{parent=null}\n" +
-            "          mFragmentId=#0 mContainerId=#0 mTag=com.bumptech.glide.manager\n" +
-            "          mState=5 mIndex=1 mWho=android:fragment:1 mBackStackNesting=0\n" +
-            "          mAdded=true mRemoving=false mFromLayout=false mInLayout=false\n" +
-            "          mHidden=false mDetached=false mMenuVisible=true mHasMenu=false\n" +
-            "          mRetainInstance=false mRetaining=false mUserVisibleHint=true\n" +
-            "          mFragmentManager=FragmentManager{89c7728 in HostCallbacks{980d7df}}\n" +
-            "          mHost=android.app.Activity HostCallbacks@980d7df\n" +
-            "          Child FragmentManager{44512fb in RequestManagerFragment{5878c8a}}:\n" +
-            "            FragmentManager misc state:\n" +
-            "              mHost=android.app.Activity HostCallbacks@980d7df\n" +
-            "              mContainer=android.app.Fragment1@653bf18\n" +
-            "              mParent=RequestManagerFragment{5878c8a #1 com.bumptech.glide.manager}{parent=null}\n" +
+            "              mHost=android.app.ActivityHostCallbacks@774b109\n" +
+            "              mContainer=android.app.Fragment\$1@eea1d2f\n" +
+            "              mParent=s{985c210 #0 androidx.lifecycle.LifecycleDispatcher.report_fragment_tag}\n" +
             "              mCurState=5 mStateSaved=false mDestroyed=false\n" +
             "      Added Fragments:\n" +
-            "        #0: ReportFragment{49d867e #0 android.arch.lifecycle.LifecycleDispatcher.report_fragment_tag}\n" +
-            "        #1: RequestManagerFragment{5878c8a #1 com.bumptech.glide.manager}{parent=null}\n" +
+            "        #0: s{985c210 #0 androidx.lifecycle.LifecycleDispatcher.report_fragment_tag}\n" +
             "      FragmentManager misc state:\n" +
-            "        mHost=android.app.Activity HostCallbacks@980d7df\n" +
-            "        mContainer=android.app.Activity HostCallbacks@980d7df\n" +
+            "        mHost=android.app.ActivityHostCallbacks@774b109\n" +
+            "        mContainer=android.app.ActivityHostCallbacks@774b109\n" +
             "        mCurState=5 mStateSaved=false mDestroyed=false\n" +
             "    ViewRoot:\n" +
             "      mAdded=true mRemoved=false\n" +
@@ -52,175 +37,20 @@ fun main() {
             "      mPendingInputEventCount=0\n" +
             "      mProcessInputEventsScheduled=false\n" +
             "      mTraversalScheduled=false      mIsAmbientMode=false\n" +
-            "      android.view.ViewRootImpl NativePreImeInputStage: mQueueLength=0\n" +
-            "      android.view.ViewRootImpl ImeInputStage: mQueueLength=0\n" +
-            "      android.view.ViewRootImpl NativePostImeInputStage: mQueueLength=0\n" +
+            "      android.view.ViewRootImplNativePreImeInputStage: mQueueLength=0\n" +
+            "      android.view.ViewRootImplImeInputStage: mQueueLength=0\n" +
+            "      android.view.ViewRootImplNativePostImeInputStage: mQueueLength=0\n" +
             "    Choreographer:\n" +
             "      mFrameScheduled=false\n" +
-            "      mLastFrameTime=134439815 (3501 ms ago)\n" +
-            "    \n" +
-            "InsetsController:\n" +
-            "      InsetsState\n" +
-            "        InsetsSource type=TYPE_UNKNOWN_10 frame=[0,0][0,0] visible=false\n" +
-            "        InsetsSource type=TYPE_BOTTOM_TAPPABLE_ELEMENT frame=[0,2340][1080,2466] visible=false\n" +
-            "        InsetsSource type=TYPE_TOP_TAPPABLE_ELEMENT frame=[0,0][1080,75] visible=true\n" +
-            "        InsetsSource type=TYPE_RIGHT_GESTURES frame=[1080,0][1080,2340] visible=false\n" +
-            "        InsetsSource type=TYPE_LEFT_GESTURES frame=[0,0][0,2340] visible=false\n" +
-            "        InsetsSource type=TYPE_BOTTOM_GESTURES frame=[0,2340][1080,2466] visible=false\n" +
-            "        InsetsSource type=TYPE_TOP_GESTURES frame=[0,0][1080,75] visible=true\n" +
-            "        InsetsSource type=TYPE_SIDE_BAR_1 frame=[0,2340][1080,2466] visible=false\n" +
-            "        InsetsSource type=TYPE_TOP_BAR frame=[0,0][1080,75] visible=true\n" +
-            "    View Hierarchy:\n" +
-            "      DecorView@a71dd71[B0101MainActivity]\n" +
-            "        android.widget.LinearLayout{a59e756 V.E...... ........ 0,0-1080,2340}\n" +
-            "          android.view.ViewStub{f47e3d7 G.E...... ......I. 0,0-0,0 #10201ac android:id/action_mode_bar_stub}\n" +
-            "          android.widget.FrameLayout{851b4c4 V.E...... ........ 0,0-1080,2340}\n" +
-            "            android.support.v7.widget.FitWindowsLinearLayout{375dfad V.E...... ........ 0,0-1080,2340 #7f09000d app:id/action_bar_root}\n" +
-            "              android.support.v7.widget.ViewStubCompat{2522e2 G.E...... ......I. 0,0-0,0 #7f090018 app:id/action_mode_bar_stub}\n" +
-            "              android.support.v7.widget.ContentFrameLayout{d3ce673 V.E...... ........ 0,0-1080,2340 #1020002 android:id/content}\n" +
-            "                android.widget.FrameLayout{1175930 V.E...... ........ 0,0-1080,2340}\n" +
-            "                  android.support.v4.widget.DrawerLayout{f3dc9a9 VFE...... ........ 0,0-1080,2340 #7f090121 app:id/drawer_layout}\n" +
-            "                    android.widget.FrameLayout{2768b2e V.E...... ........ 0,0-1080,2340 #7f0900f9 app:id/content}\n" +
-            "                      android.widget.FrameLayout{8ae633c V.E...... ........ 0,0-1080,2340}\n" +
-            "                        android.widget.FrameLayout{e7576cf V.E...... ........ 0,0-1080,2340 #7f0900f9 app:id/content}\n" +
-            "                          android.widget.FrameLayout{e4b8c5 V.E...... ........ 0,0-1080,2340 #7f0900f9 app:id/content}\n" +
-            "                            android.widget.LinearLayout{550d85c V.E...... ........ 0,0-1080,2340}\n" +
-            "                              android.support.design.widget.AppBarLayout{8805765 V.E...... ........ 0,0-1080,243}\n" +
-            "                                android.widget.FrameLayout{6642c3a V.E...... ........ 0,0-1080,75}\n" +
-            "                                  android.widget.FrameLayout{cfcb0eb V.E...... ........ 0,0-1080,75 #7f0902c7 app:id/statusBarSpace}\n" +
-            "                                android.support.v7.widget.Toolbar{6411e48 V.E...... ........ 0,75-1080,243 #7f09038c app:id/toolbar}\n" +
-            "                                  android.support.v7.widget.AppCompatImageButton{4a404e1 VFED..C.. ........ 0,0-168,168}\n" +
-            "                                  android.support.v7.widget.AppCompatImageView{a58d206 V.ED..... ........ 216,63-540,105}\n" +
-            "                                  android.support.v7.widget.ActionMenuView{e7370c7 V.E...... ........ 936,0-1080,168}\n" +
-            "                                    android.widget.FrameLayout{46dd6f4 VFE...C.. ........ 0,0-144,168 #7f090201 app:id/menu_cart}\n" +
-            "                                      android.support.v7.widget.AppCompatImageView{efb0e1d V.ED..... ........ 36,48-108,120}\n" +
-            "                                      com.xflag.store.widget.AppTextView{6a00892 V.ED..... ........ 62,44-86,93 #7f0900c4 app:id/cartNum}\n" +
-            "                              android.support.v4.widget.SwipeRefreshLayout{7ac5263 V.ED..... ........ 0,243-1080,2196 #7f090274 app:id/refreshLayout}\n" +
-            "                                com.xflag.store.widget.DisableMultiTouchFrameLayout{10b6e60 V.E...... ........ 0,0-1080,1953}\n" +
-            "                                  android.support.v7.widget.RecyclerView{bbf6f19 VFED..... ......I. 0,0-1080,1953 #7f090270 app:id/recyclerView}\n" +
-            "                                    android.support.constraint.ConstraintLayout{f7c614b VFE...C.. ......I. 48,181-1032,1015}\n" +
-            "                                      android.support.v7.widget.AppCompatImageView{f0ce21a V.ED..... ........ 0,0-984,536 #7f090198 app:id/imageView}\n" +
-            "                                      com.nex3z.flowlayout.FlowLayout{ab21bde V.E...... ........ 0,566-984,619 #7f090156 app:id/flowLayout}\n" +
-            "                                        android.support.v7.widget.AppCompatTextView{e07b1bf V.ED..... ........ 0,0-160,53}\n" +
-            "                                        android.support.v7.widget.AppCompatTextView{a29108c V.ED..... ........ 184,0-423,53}\n" +
-            "                                        android.support.v7.widget.AppCompatTextView{ecee3d5 V.ED..... ........ 447,0-602,53}\n" +
-            "                                      com.xflag.store.widget.AppTextView{34017ea V.ED..... ........ 0,649-984,777 #7f0902fd app:id/textView2}\n" +
-            "                                      android.view.View{28faadb V.ED..... ........ 0,831-984,834 #7f0903ce app:id/view37}\n" +
-            "                                    android.support.constraint.ConstraintLayout{63fceb3 VFE...C.. ......I. 48,1057-1032,1891}\n" +
-            "                                      android.support.v7.widget.AppCompatImageView{fbd8422 V.ED..... ........ 0,0-984,536 #7f090198 app:id/imageView}\n" +
-            "                                      com.nex3z.flowlayout.FlowLayout{d9ca978 V.E...... ........ 0,566-984,619 #7f090156 app:id/flowLayout}\n" +
-            "                                        android.support.v7.widget.AppCompatTextView{226e851 V.ED..... ........ 0,0-160,53}\n" +
-            "                                        android.support.v7.widget.AppCompatTextView{4ffc8b6 V.ED..... ........ 184,0-423,53}\n" +
-            "                                        android.support.v7.widget.AppCompatTextView{2d419b7 V.ED..... ........ 447,0-588,53}\n" +
-            "                                        android.support.v7.widget.AppCompatTextView{eaee524 V.ED..... ........ 612,0-767,53}\n" +
-            "                                      com.xflag.store.widget.AppTextView{820b88d V.ED..... ........ 0,649-984,777 #7f0902fd app:id/textView2}\n" +
-            "                                      android.view.View{837ba42 V.ED..... ........ 0,831-984,834 #7f0903ce app:id/view37}\n" +
-            "                                    android.support.constraint.ConstraintLayout{9b46dff VFE...C.. ......I. 48,1933-1032,2767}\n" +
-            "                                      android.support.v7.widget.AppCompatImageView{e7211e V.ED..... ........ 0,0-984,536 #7f090198 app:id/imageView}\n" +
-            "                                      com.nex3z.flowlayout.FlowLayout{b869a53 V.E...... ........ 0,566-984,619 #7f090156 app:id/flowLayout}\n" +
-            "                                        android.support.v7.widget.AppCompatTextView{a872f90 V.ED..... ........ 0,0-126,53}\n" +
-            "                                      com.xflag.store.widget.AppTextView{56d5089 V.ED..... ........ 0,649-984,777 #7f0902fd app:id/textView2}\n" +
-            "                                      android.view.View{10b388e V.ED..... ........ 0,831-984,834 #7f0903ce app:id/view37}\n" +
-            "                                  com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader{8d688af V.E...... ........ 0,0-1080,139 #7f090179 app:id/header}\n" +
-            "                                    com.xflag.store.widget.AppViewPager{757b4bc GFED..... ......I. 0,0-0,0 #7f0903d4 app:id/viewPager}\n" +
-            "                                    android.widget.LinearLayout{ed16c45 G.E...... ......I. 0,0-0,0 #7f0901b9 app:id/indiactorLinear}\n" +
-            "                                    com.xflag.store.widget.AppTextView{864f9a V.ED..... ........ 48,90-258,139}\n" +
-            "                                android.support.v4.widget.CircleImageView{8d00cb G.ED..... ......ID 480,-120-600,0}\n" +
-            "                              android.widget.Space{a4960a8 I.ED..... ......I. 0,2196-1080,2340}\n" +
-            "                        android.widget.FrameLayout{6a187c1 V.E...... ........ 0,2196-1080,2340 #7f090185 app:id/holderLayout}\n" +
-            "                          android.support.design.widget.TabLayout{a69cb66 VFED..... ........ 0,0-1080,144 #7f09021a app:id/navigation}\n" +
-            "                            android.support.design.widget.TabLayout SlidingTabIndicator{1e8dea7 V.ED..... ........ 0,0-1080,144}\n" +
-            "                              android.support.design.widget.TabLayout TabView{27df54 VFE...C.. ..S..A.. 0,0-216,144}\n" +
-            "                                android.support.v7.widget.AppCompatImageView{5fddefd G.ED..... ..S..AI. 0,0-0,0}\n" +
-            "                                com.xflag.store.widget.AppTextView{bb737f2 G.ED..... ..S..AID 0,0-0,0}\n" +
-            "                                com.xflag.store.widget.AnimationTabLayout{73abe43 V.ED..... ..S..A.. 0,9-216,134}\n" +
-            "                                  android.support.v7.widget.AppCompatImageView{4cd9cc0 V.ED..... ..S..A.. 72,9-144,81 #1020006 android:id/icon}\n" +
-            "                                  com.xflag.store.widget.SelectableTextView{dce6df9 V.ED..... ..S..A.. 0,90-216,125 #1020014 android:id/text1}\n" +
-            "                              android.support.design.widget.TabLayout TabView{dfce13e VFE...C.. ........ 216,0-432,144}\n" +
-            "                                android.support.v7.widget.AppCompatImageView{540fb9f G.ED..... ......I. 0,0-0,0}\n" +
-            "                                com.xflag.store.widget.AppTextView{54fc4ec G.ED..... ......ID 0,0-0,0}\n" +
-            "                                com.xflag.store.widget.AnimationTabLayout{b7ef0b5 V.ED..... ........ 0,9-216,134}\n" +
-            "                                  android.support.v7.widget.AppCompatImageView{361d34a V.ED..... ........ 72,9-144,81 #1020006 android:id/icon}\n" +
-            "                                  com.xflag.store.widget.SelectableTextView{443b2bb V.ED..... ........ 0,90-216,125 #1020014 android:id/text1}\n" +
-            "                              android.support.design.widget.TabLayout TabView{8ea43d8 VFE...C.. ........ 432,0-648,144}\n" +
-            "                                android.support.v7.widget.AppCompatImageView{d7ae331 G.ED..... ......I. 0,0-0,0}\n" +
-            "                                com.xflag.store.widget.AppTextView{771da16 G.ED..... ......ID 0,0-0,0}\n" +
-            "                                com.xflag.store.widget.AnimationTabLayout{ef0bf97 V.ED..... ........ 0,9-216,134}\n" +
-            "                                  android.support.v7.widget.AppCompatImageView{cabc584 V.ED..... ........ 72,9-144,81 #1020006 android:id/icon}\n" +
-            "                                  com.xflag.store.widget.SelectableTextView{369816d V.ED..... ........ 0,90-216,125 #1020014 android:id/text1}\n" +
-            "                              android.support.design.widget.TabLayout TabView{a981a2 VFE...C.. ........ 648,0-864,144}\n" +
-            "                                android.support.v7.widget.AppCompatImageView{2f7be33 G.ED..... ......I. 0,0-0,0}\n" +
-            "                                com.xflag.store.widget.AppTextView{de1b5f0 G.ED..... ......ID 0,0-0,0}\n" +
-            "                                com.xflag.store.widget.AnimationTabLayout{629c769 V.ED..... ........ 0,9-216,134}\n" +
-            "                                  android.support.v7.widget.AppCompatImageView{ec215ee V.ED..... ........ 72,9-144,81 #1020006 android:id/icon}\n" +
-            "                                  com.xflag.store.widget.SelectableTextView{f660a8f V.ED..... ........ 0,90-216,125 #1020014 android:id/text1}\n" +
-            "                              android.support.design.widget.TabLayout TabView{f44411c VFE...C.. ........ 864,0-1080,144}\n" +
-            "                                android.support.v7.widget.AppCompatImageView{38e7125 G.ED..... ......I. 0,0-0,0}\n" +
-            "                                com.xflag.store.widget.AppTextView{1bda2fa G.ED..... ......ID 0,0-0,0}\n" +
-            "                                com.xflag.store.widget.AnimationTabLayout{cc2c0ab V.ED..... ........ 0,9-216,134}\n" +
-            "                                  android.support.v7.widget.AppCompatImageView{4e25308 V.ED..... ........ 72,9-144,81 #1020006 android:id/icon}\n" +
-            "                                  com.xflag.store.widget.SelectableTextView{9d9faa1 V.ED..... ........ 0,90-216,125 #1020014 android:id/text1}\n" +
-            "                    android.widget.ScrollView{5b2f4c6 IFED.V... ......ID -888,0-0,2340 #7f090200 app:id/menu}\n" +
-            "                      android.support.constraint.ConstraintLayout{aeabc87 V.E...... ......ID 0,0-888,1757 #7f090219 app:id/nav_view}\n" +
-            "                        com.xflag.store.widget.CompatibleTextView{2cd97b4 VFED..C.. ......ID 0,0-888,300 #7f0901c0 app:id/item_home}\n" +
-            "                        com.xflag.store.widget.CompatibleTextView{efa9fdd VFED..C.. ......ID 0,300-888,486 #7f0901c3 app:id/item_user}\n" +
-            "                        com.xflag.store.widget.CompatibleTextView{f599752 GFED..C.. ......ID 0,0-0,0 #7f0901c1 app:id/item_setting}\n" +
-            "                        android.widget.LinearLayout{ac9a23 GFE...C.. ......ID 0,0-0,0 #7f0902ec app:id/textView1}\n" +
-            "                          com.xflag.store.widget.CompatibleTextView{a867b20 V.ED..... ......ID 0,0-0,0}\n" +
-            "                          android.support.v7.widget.AppCompatImageView{f865cd9 V.ED..... ......ID 0,0-0,0}\n" +
-            "                        android.support.v7.widget.RecyclerView{555d69e VFE...... ......ID 0,486-888,1044 #7f0902cc app:id/stores}\n" +
-            "                          android.widget.FrameLayout{924b57f VFE...C.. ......I. 0,0-888,186}\n" +
-            "                            com.xflag.store.widget.CompatibleTextView{328294c V.ED..... ......ID 0,0-888,186 #7f090380 app:id/title}\n" +
-            "                            com.xflag.store.widget.AppTextView{176ed95 G.ED..... ......ID 0,0-0,0 #7f09021f app:id/newMarker}\n" +
-            "                          android.widget.FrameLayout{244beaa VFE...C.. ......I. 0,186-888,372}\n" +
-            "                            com.xflag.store.widget.CompatibleTextView{ad92a9b V.ED..... ......ID 0,0-888,186 #7f090380 app:id/title}\n" +
-            "                            com.xflag.store.widget.AppTextView{8548e38 G.ED..... ......ID 0,0-0,0 #7f09021f app:id/newMarker}\n" +
-            "                          android.widget.FrameLayout{6a5ce11 VFE...C.. ......I. 0,372-888,558}\n" +
-            "                            com.xflag.store.widget.CompatibleTextView{b881b76 V.ED..... ......ID 0,0-888,186 #7f090380 app:id/title}\n" +
-            "                            com.xflag.store.widget.AppTextView{495d577 G.ED..... ......ID 0,0-0,0 #7f09021f app:id/newMarker}\n" +
-            "                        android.widget.LinearLayout{be055e4 V.E...... ......ID 0,1044-888,1757}\n" +
-            "                          android.widget.LinearLayout{b083a4d VFE...C.. ......ID 0,0-888,186 #7f0902d2 app:id/supportGroup}\n" +
-            "                            com.xflag.store.widget.CompatibleImageView{8d27902 V.ED..... ......ID 66,66-120,120 #7f09018c app:id/icon}\n" +
-            "                            com.xflag.store.widget.CompatibleTextView{c085213 V.ED..... ......ID 165,68-333,117 #7f0902dd app:id/text}\n" +
-            "                            com.xflag.store.widget.CompatibleImageView{63eec50 V.ED..... ......ID 363,84-393,102 #7f0902c8 app:id/statusIcon}\n" +
-            "                          com.github.aakira.expandablelayout.ExpandableRelativeLayout{aab2e49 V.E...... ......ID 0,186-888,186 #7f090140 app:id/expandableList1}\n" +
-            "                            com.xflag.store.widget.AppTextView{873234e VFED..C.. ......ID 0,0-888,0 #7f0902fd app:id/textView2}\n" +
-            "                            com.xflag.store.widget.AppTextView{a1bfc6f VFED..C.. ......ID 0,0-888,0}\n" +
-            "                          android.widget.LinearLayout{1ae7d7c VFE...C.. ......ID 0,186-888,372 #7f09002f app:id/appInfoGroup}\n" +
-            "                            com.xflag.store.widget.CompatibleImageView{b6f6605 V.ED..... ......ID 66,66-120,120 #7f09018c app:id/icon}\n" +
-            "                            com.xflag.store.widget.CompatibleTextView{c62265a V.ED..... ......ID 165,68-375,117 #7f0902dd app:id/text}\n" +
-            "                            com.xflag.store.widget.CompatibleImageView{115f08b V.ED..... ......ID 405,84-435,102 #7f0902c8 app:id/statusIcon}\n" +
-            "                          com.github.aakira.expandablelayout.ExpandableRelativeLayout{c23f568 V.E...... ......ID 0,372-888,372 #7f090141 app:id/expandableList2}\n" +
-            "                            com.xflag.store.widget.AppTextView{6855d81 VFED..C.. ......ID 0,0-888,0 #7f090308 app:id/textView3}\n" +
-            "                            com.xflag.store.widget.AppTextView{c0c4e26 VFED..C.. ......ID 0,0-888,0 #7f090313 app:id/textView4}\n" +
-            "                            com.xflag.store.widget.AppTextView{8710a67 VFED..C.. ......ID 0,0-888,0 #7f09031e app:id/textView5}\n" +
-            "                            com.xflag.store.widget.AppTextView{bf70014 VFED..C.. ......ID 0,0-888,0 #7f090329 app:id/textView6}\n" +
-            "                            com.xflag.store.widget.AppTextView{da950bd VFED..C.. ......ID 0,0-888,0 #7f09033d app:id/textView8}\n" +
-            "                            com.xflag.store.widget.AppTextView{6df26b2 VFED..C.. ......ID 0,0-888,0 #7f090347 app:id/textView9}\n" +
-            "                          android.widget.LinearLayout{a79e603 VFE...C.. ......ID 0,372-888,558 #7f090277 app:id/relatedSitesGroup}\n" +
-            "                            com.xflag.store.widget.CompatibleImageView{34e0980 V.ED..... ......ID 66,66-120,120 #7f09018c app:id/icon}\n" +
-            "                            com.xflag.store.widget.CompatibleTextView{81f3bb9 V.ED..... ......ID 165,68-375,117 #7f0902dd app:id/text}\n" +
-            "                            com.xflag.store.widget.CompatibleImageView{394fbfe V.ED..... ......ID 405,84-435,102 #7f0902c8 app:id/statusIcon}\n" +
-            "                          com.github.aakira.expandablelayout.ExpandableRelativeLayout{faadf5f V.E...... ......ID 0,558-888,558 #7f090142 app:id/expandableList3}\n" +
-            "                            android.widget.LinearLayout{e4a3dac V.E...... ......ID 0,0-888,0}\n" +
-            "                              android.widget.LinearLayout{36eda75 VFE...C.. ......ID 0,0-888,186 #7f0901e3 app:id/linearLayout1}\n" +
-            "                                com.xflag.store.widget.AppTextView{840da0a V.ED..... ......ID 165,68-303,117}\n" +
-            "                                com.xflag.store.widget.CompatibleImageView{3c8127b V.ED..... ......ID 333,78-363,108}\n" +
-            "                              android.widget.LinearLayout{7f38898 VFE...C.. ......ID 0,186-888,372 #7f0901e3 app:id/linearLayout1}\n" +
-            "                                com.xflag.store.widget.AppTextView{3dfa8f1 V.ED..... ......ID 165,68-513,117}\n" +
-            "                                com.xflag.store.widget.CompatibleImageView{71a8cd6 V.ED..... ......ID 543,78-573,108}\n" +
-            "                          com.xflag.store.widget.CompatibleTextView{bb5b57 GFED..C.. ......ID 0,0-0,0 #7f090305 app:id/textView27}\n" +
-            "                          com.xflag.store.widget.AppTextView{1e49644 V.ED..... ......ID 0,618-888,653 #7f090316 app:id/textView42}\n" +
-            "                  android.widget.FrameLayout{b4e32d GFE...C.. ......I. 0,0-0,0}\n" +
-            "                    android.widget.ProgressBar{c0aa062 V.ED..... ......ID 0,0-0,0}\n" +
-            "    Looper (main, tid 1) {55c07b7}\n" +
-            "      Message 0: { when=+261ms what=0 obj=com.google.android.gms.measurement.START target=com.google.android.gms.internal.common.zze }\n" +
+            "      mLastFrameTime=370870295 (89789 ms ago)\n" +
+            "    Looper (main, tid 1) {d626c40}\n" +
+            "      Message 0: { when=+8m28s928ms callback=com.zhihu.android.app.search.preset.f target=android.os.Handler }\n" +
             "      (Total messages: 1, polling=false, quitting=false)\n" +
             "    AutofillManager:\n" +
             "      sessionId: 2147483647\n" +
             "      state: UNKNOWN\n" +
-            "      context: com.xflag.store.view.activity.B0101MainActivity@201126b\n" +
-            "      client: com.xflag.store.view.activity.B0101MainActivity@201126b (android.os.BinderProxy@c1f23ba)\n" +
+            "      context: com.zhihu.android.app.ui.activity.HostActivity@b6948f9\n" +
+            "      client: com.zhihu.android.app.ui.activity.HostActivity@b6948f9 (android.os.BinderProxy@98abe9a)\n" +
             "      enabled: false\n" +
             "      enabledAugmentedOnly: false\n" +
             "      hasService: true\n" +
@@ -240,161 +70,110 @@ fun main() {
             "    No ContentCaptureManager\n" +
             "    ResourcesManager:\n" +
             "      cached apks: 0 [cache disabled]\n" +
-            "      total apks: 1\n" +
+            "      total apks: 3\n" +
             "      resources: 4\n" +
             "      resource impls: 3\n" +
-            "    Local FragmentActivity 201126b State:\n" +
-            "      mCreated=true mResumed=true mStopped=false    Active Fragments in b3055f3:\n" +
-            "      #0: ViewModelHolder{ab6d2b0 #0 class com.xflag.store.view.ViewModelHolder}\n" +
-            "        mFragmentId=#0 mContainerId=#0 mTag=class com.xflag.store.view.ViewModelHolder\n" +
-            "        mState=4 mIndex=0 mWho=android:fragment:0 mBackStackNesting=0\n" +
+            "    Local FragmentActivity b6948f9 State:\n" +
+            "      mCreated=true mResumed=true mStopped=false    Active Fragments in 12aa4da:\n" +
+            "    ParentFragment{7fecd0b (73a8529b-e1c7-4c21-81af-2e569d73a59c) id=0x7f0a089e HostActivity::ParentFragment}\n" +
+            "        mFragmentId=#7f0a089e mContainerId=#7f0a089e mTag=HostActivity::ParentFragment\n" +
+            "        mState=4 mWho=73a8529b-e1c7-4c21-81af-2e569d73a59c mBackStackNesting=0\n" +
             "        mAdded=true mRemoving=false mFromLayout=false mInLayout=false\n" +
             "        mHidden=false mDetached=false mMenuVisible=true mHasMenu=false\n" +
-            "        mRetainInstance=true mRetaining=false mUserVisibleHint=true\n" +
-            "        mFragmentManager=FragmentManager{b3055f3 in HostCallbacks{8298529}}\n" +
-            "        mHost=android.support.v4.app.FragmentActivity HostCallbacks@8298529\n" +
-            "        Child FragmentManager{6f660ae in ViewModelHolder{ab6d2b0}}:\n" +
-            "          FragmentManager misc state:\n" +
-            "            mHost=android.support.v4.app.FragmentActivity HostCallbacks@8298529\n" +
-            "            mContainer=android.support.v4.app.Fragment2@cf05e4f\n" +
-            "            mParent=ViewModelHolder{ab6d2b0 #0 class com.xflag.store.view.ViewModelHolder}\n" +
-            "            mCurState=4 mStateSaved=false mStopped=false mDestroyed=false\n" +
-            "      #1: B0101NavigationFragment{f2e69dc #1 id=0x7f0900f9}\n" +
-            "        mFragmentId=#7f0900f9 mContainerId=#7f0900f9 mTag=null\n" +
-            "        mState=4 mIndex=1 mWho=android:fragment:1 mBackStackNesting=0\n" +
-            "        mAdded=true mRemoving=false mFromLayout=false mInLayout=false\n" +
-            "        mHidden=false mDetached=false mMenuVisible=true mHasMenu=false\n" +
-            "        mRetainInstance=false mRetaining=false mUserVisibleHint=true\n" +
-            "        mFragmentManager=FragmentManager{b3055f3 in HostCallbacks{8298529}}\n" +
-            "        mHost=android.support.v4.app.FragmentActivity HostCallbacks@8298529\n" +
-            "        mContainer=android.widget.FrameLayout{2768b2e V.E...... ........ 0,0-1080,2340 #7f0900f9 app:id/content}\n" +
-            "        mView=android.widget.FrameLayout{8ae633c V.E...... ........ 0,0-1080,2340}\n" +
-            "        mInnerView=android.widget.FrameLayout{8ae633c V.E...... ........ 0,0-1080,2340}\n" +
-            "        Child FragmentManager{72c4ae5 in B0101NavigationFragment{f2e69dc}}:\n" +
-            "          Active Fragments in 72c4ae5:\n" +
-            "            #0: ViewModelHolder{ecbd9ba #0 class com.xflag.store.view.ViewModelHolder}\n" +
-            "              mFragmentId=#0 mContainerId=#0 mTag=class com.xflag.store.view.ViewModelHolder\n" +
-            "              mState=4 mIndex=0 mWho=android:fragment:1:0 mBackStackNesting=0\n" +
+            "        mRetainInstance=false mUserVisibleHint=true\n" +
+            "        mFragmentManager=FragmentManager{12aa4da in a{b78d7e8}}\n" +
+            "        mHost=androidx.fragment.app.ea@b78d7e8\n" +
+            "        mArguments=Bundle[{zhihu:parent_fragment:extra_bundle=Bundle[{UserNavigationClick=1589442061491, extra_tag=fakeurl://answer/answer_1219458172, promotion_extra=[], key_router_raw_url=https://zhihu.com/question/394460693/answer/1219458172, source_preload=HomePage, extra_answer_id=1219458172, extra_question_id=394460693, key_router_module=content}], zhihu:parent_fragment:force_initialize=true, zhihu:parent_fragment:host=com.zhihu.android.answer.module.pager.AnswerPagerFragment}]\n" +
+            "        mContainer=com.zhihu.android.base.widget.ZHFrameLayout{b4a8327 V.E...... ........ 0,0-1080,2340 #7f0a089e app:id/fragment_container}\n" +
+            "        mView=android.widget.FrameLayout{9d9e9d4 V.E...... ........ 0,0-1080,2340 #7f0a0fab app:id/parent_fragment_content_id}\n" +
+            "        mInnerView=android.widget.FrameLayout{9d9e9d4 V.E...... ........ 0,0-1080,2340 #7f0a0fab app:id/parent_fragment_content_id}\n" +
+            "        Child FragmentManager{9acce01 in ParentFragment{7fecd0b}}:\n" +
+            "          Active Fragments in 9acce01:\n" +
+            "          AnswerPagerFragment{2f8d81c (562209fc-561d-46ed-b733-8bd900d1e958) id=0x7f0a0fab host}\n" +
+            "              mFragmentId=#7f0a0fab mContainerId=#7f0a0fab mTag=host\n" +
+            "              mState=4 mWho=562209fc-561d-46ed-b733-8bd900d1e958 mBackStackNesting=0\n" +
             "              mAdded=true mRemoving=false mFromLayout=false mInLayout=false\n" +
             "              mHidden=false mDetached=false mMenuVisible=true mHasMenu=false\n" +
-            "              mRetainInstance=true mRetaining=false mUserVisibleHint=true\n" +
-            "              mFragmentManager=FragmentManager{72c4ae5 in B0101NavigationFragment{f2e69dc}}\n" +
-            "              mHost=android.support.v4.app.FragmentActivity HostCallbacks@8298529\n" +
-            "              mParentFragment=B0101NavigationFragment{f2e69dc #1 id=0x7f0900f9}\n" +
-            "              Child FragmentManager{8fe906b in ViewModelHolder{ecbd9ba}}:\n" +
-            "                FragmentManager misc state:\n" +
-            "                  mHost=android.support.v4.app.FragmentActivity HostCallbacks@8298529\n" +
-            "                  mContainer=android.support.v4.app.Fragment2@22647c8\n" +
-            "                  mParent=ViewModelHolder{ecbd9ba #0 class com.xflag.store.view.ViewModelHolder}\n" +
-            "                  mCurState=4 mStateSaved=false mStopped=false mDestroyed=false\n" +
-            "            #1: D0101NewsFragment{dbb061 #1 id=0x7f0900f9}\n" +
-            "              mFragmentId=#7f0900f9 mContainerId=#7f0900f9 mTag=null\n" +
-            "              mState=4 mIndex=1 mWho=android:fragment:1:1 mBackStackNesting=0\n" +
-            "              mAdded=true mRemoving=false mFromLayout=false mInLayout=false\n" +
-            "              mHidden=false mDetached=false mMenuVisible=true mHasMenu=true\n" +
-            "              mRetainInstance=false mRetaining=false mUserVisibleHint=true\n" +
-            "              mFragmentManager=FragmentManager{72c4ae5 in B0101NavigationFragment{f2e69dc}}\n" +
-            "              mHost=android.support.v4.app.FragmentActivity HostCallbacks@8298529\n" +
-            "              mParentFragment=B0101NavigationFragment{f2e69dc #1 id=0x7f0900f9}\n" +
-            "              mContainer=android.widget.FrameLayout{e7576cf V.E...... ........ 0,0-1080,2340 #7f0900f9 app:id/content}\n" +
-            "              mView=android.widget.FrameLayout{e4b8c5 V.E...... ........ 0,0-1080,2340 #7f0900f9 app:id/content}\n" +
-            "              mInnerView=android.widget.FrameLayout{e4b8c5 V.E...... ........ 0,0-1080,2340 #7f0900f9 app:id/content}\n" +
-            "              Child FragmentManager{94dd786 in D0101NewsFragment{dbb061}}:\n" +
-            "                Active Fragments in 94dd786:\n" +
-            "                  #0: ViewModelHolder{573c847 #0 class com.xflag.store.view.ViewModelHolder}\n" +
-            "                    mFragmentId=#0 mContainerId=#0 mTag=class com.xflag.store.view.ViewModelHolder\n" +
-            "                    mState=4 mIndex=0 mWho=android:fragment:1:1:0 mBackStackNesting=0\n" +
+            "              mRetainInstance=false mUserVisibleHint=true\n" +
+            "              mFragmentManager=FragmentManager{9acce01 in ParentFragment{7fecd0b}}\n" +
+            "              mHost=androidx.fragment.app.ea@b78d7e8\n" +
+            "              mParentFragment=ParentFragment{7fecd0b (73a8529b-e1c7-4c21-81af-2e569d73a59c) id=0x7f0a089e HostActivity::ParentFragment}\n" +
+            "              mArguments=Bundle[{UserNavigationClick=1589442061491, extra_tag=fakeurl://answer/answer_1219458172, promotion_extra=[], key_router_raw_url=https://zhihu.com/question/394460693/answer/1219458172, source_preload=HomePage, extra_answer_id=1219458172, extra_question_id=394460693, key_router_module=content}]\n" +
+            "              mContainer=android.widget.FrameLayout{9d9e9d4 V.E...... ........ 0,0-1080,2340 #7f0a0fab app:id/parent_fragment_content_id}\n" +
+            "              mView=android.widget.RelativeLayout{4ff577d V.E...... ........ 0,0-1080,2340}\n" +
+            "              mInnerView=android.widget.RelativeLayout{4ff577d V.E...... ........ 0,0-1080,2340}\n" +
+            "              Child FragmentManager{b1e34a6 in AnswerPagerFragment{2f8d81c}}:\n" +
+            "                Active Fragments in b1e34a6:\n" +
+            "                AnswerFragment{d60e709 (ead4aa11-9e06-40b7-b349-c126067fd080) id=0x5}\n" +
+            "                    mFragmentId=#5 mContainerId=#5 mTag=null\n" +
+            "                    mState=4 mWho=ead4aa11-9e06-40b7-b349-c126067fd080 mBackStackNesting=0\n" +
             "                    mAdded=true mRemoving=false mFromLayout=false mInLayout=false\n" +
             "                    mHidden=false mDetached=false mMenuVisible=true mHasMenu=false\n" +
-            "                    mRetainInstance=true mRetaining=false mUserVisibleHint=true\n" +
-            "                    mFragmentManager=FragmentManager{94dd786 in D0101NewsFragment{dbb061}}\n" +
-            "                    mHost=android.support.v4.app.FragmentActivity HostCallbacks@8298529\n" +
-            "                    mParentFragment=D0101NewsFragment{dbb061 #1 id=0x7f0900f9}\n" +
-            "                    Child FragmentManager{73c1874 in ViewModelHolder{573c847}}:\n" +
+            "                    mRetainInstance=false mUserVisibleHint=true\n" +
+            "                    mFragmentManager=FragmentManager{b1e34a6 in AnswerPagerFragment{2f8d81c}}\n" +
+            "                    mHost=androidx.fragment.app.ea@b78d7e8\n" +
+            "                    mParentFragment=AnswerPagerFragment{2f8d81c (562209fc-561d-46ed-b733-8bd900d1e958) id=0x7f0a0fab host}\n" +
+            "                    mArguments=Bundle[{UserNavigationClick=1589442061491, extra_next_answer_id=0, extra_tag=fakeurl://answer/answer_1219458172, promotion_extra=[], key_router_raw_url=https://zhihu.com/question/394460693/answer/1219458172, source_preload=HomePage, extra_answer={\"attachInfo\":null,\"isEdit\":false,\"readPosition\":0,\"sectionName\":null,\"type\":null,\"url\":null,\"activity_topping_info\":null,\"ad_answer\":null,\"admin_closed_comment\":false,\"annotation_detail\":null,\"banner\":null,\"paid_info\":null,\"tags\":null,\"thumbnail_info\":null,\"answer_type\":null,\"attached_info\":null,\"attached_info_bytes\":null,\"author\":null,\"collection\":null,\"question\":null,\"collaboration_status\":null,\"collapse_reason\":null,\"collapsed_counts\":0,\"collection_count\":0,\"collections\":null,\"comment_count\":0,\"comment_permission\":null,\"can_comment\":null,\"content\":null,\"created_time\":0,\"decorative_labels\":null,\"draft_title\":null,\"editable_content\":null,\"excerpt\":null,\"extras\":null,\"mcn_fp_show\":0,\"from_source\":null,\"has_publishing_draft\":false,\"has_sync_club_post\":false,\"hermes_label\":null,\"id\":1219458172,\"is_collapsed\":false,\"is_copyable\":false,\"is_mine\":false,\"is_sticky\":false,\"is_topic_active_answerer\":false,\"label_info\":null,\"pagination_info\":null,\"pin_content\":null,\"pin_content_thumbnails\":null,\"relationship\":null,\"relevant_info\":null,\"review_info\":null,\"reward_info\":null,\"sticky_info\":null,\"suggest_edit\":null,\"thanks_count\":0,\"thumbnail\":null,\"thumbnail_extra_info\":null,\"title\":null,\"topic_tag\":null,\"topic_thumbnails\":null,\"topic_thumbnails_extra_info\":null,\"updated_time\":0,\"video_info\":null,\"visit_count\":0,\"voteup_count\":0,\"wow_badge\":null}, extra_answer_id=1219458172, extra_question_id=394460693, key_router_module=content}]\n" +
+            "                    mContainer=com.zhihu.android.answer.widget.VerticalViewPager{bd5cf40 VFED..... ........ 0,0-1080,2097 #5}\n" +
+            "                    mView=com.zhihu.android.base.widget.ZHFrameLayout{aaeee79 V.E...... ........ 0,0-1080,2097}\n" +
+            "                    mInnerView=com.zhihu.android.base.widget.ZHFrameLayout{aaeee79 V.E...... ........ 0,0-1080,2097}\n" +
+            "                    Child FragmentManager{e4b2ee7 in AnswerFragment{d60e709}}:\n" +
             "                      FragmentManager misc state:\n" +
-            "                        mHost=android.support.v4.app.FragmentActivity HostCallbacks@8298529\n" +
-            "                        mContainer=android.support.v4.app.Fragment2@1c1f19d\n" +
-            "                        mParent=ViewModelHolder{573c847 #0 class com.xflag.store.view.ViewModelHolder}\n" +
+            "                        mHost=androidx.fragment.app.ea@b78d7e8\n" +
+            "                        mContainer=androidx.fragment.app.d\$3@bf78a94\n" +
+            "                        mParent=AnswerFragment{d60e709 (ead4aa11-9e06-40b7-b349-c126067fd080) id=0x5}\n" +
+            "                        mCurState=4 mStateSaved=false mStopped=false mDestroyed=false\n" +
+            "                AnswerFragment{f0ce21a (b9405cb2-d64b-4355-a9fa-d1f1e1e56074) id=0x5}\n" +
+            "                    mFragmentId=#5 mContainerId=#5 mTag=null\n" +
+            "                    mState=4 mWho=b9405cb2-d64b-4355-a9fa-d1f1e1e56074 mBackStackNesting=0\n" +
+            "                    mAdded=true mRemoving=false mFromLayout=false mInLayout=false\n" +
+            "                    mHidden=false mDetached=false mMenuVisible=false mHasMenu=false\n" +
+            "                    mRetainInstance=false mUserVisibleHint=false\n" +
+            "                    mFragmentManager=FragmentManager{b1e34a6 in AnswerPagerFragment{2f8d81c}}\n" +
+            "                    mHost=androidx.fragment.app.ea@b78d7e8\n" +
+            "                    mParentFragment=AnswerPagerFragment{2f8d81c (562209fc-561d-46ed-b733-8bd900d1e958) id=0x7f0a0fab host}\n" +
+            "                    mArguments=Bundle[{UserNavigationClick=1589442061491, extra_next_answer_id=1220071417, extra_tag=fakeurl://answer/answer_1219458172, promotion_extra=[], key_router_raw_url=https://zhihu.com/question/394460693/answer/1219458172, source_preload=HomePage, extra_answer={\"attachInfo\":null,\"isEdit\":false,\"readPosition\":0,\"sectionName\":null,\"type\":\"answer\",\"url\":\"https://api.zhihu.com/answers/1222017732\",\"activity_topping_info\":null,\"ad_answer\":null,\"admin_closed_comment\":false,\"annotation_detail\":null,\"banner\":null,\"paid_info\":null,\"tags\":null,\"thumbnail_info\":{\"thumbnails\":[{\"attached_info\":null,\"height\":467,\"router\":null,\"type\":\"image\",\"url\":\"https://unicom-free.zhimg.com/80/v2-eab822292cd28812fdd1631e5b11d013_bh.jpg\",\"width\":690},{\"attached_info\":null,\"height\":1250,\"router\":null,\"type\":\"image\",\"url\":\"https://unicom-free.zhimg.com/80/v2-51594137a9c79ed5233699bc34f770ea_bh.jpg\",\"width\":1665},{\"attached_info\":null,\"height\":1250,\"router\":null,\"type\":\"image\",\"url\":\"https://unicom-free.zhimg.com/80/v2-cd95e5e885253af24a1e0daae3b57645_bh.jpg\",\"width\":1665}],\"count\":7,\"type\":\"thumbnail_info\"},\"answer_type\":\"normal\",\"attached_info\":\"ogEQCAQQAxjEhdrGBCCV/Iu8AQ==\",\"attached_info_bytes\":null,\"author\":{\"entrance\":null,\"marketStatistics\":null,\"anonymous\":false,\"type\":\"people\",\"url\":\"https://api.zhihu.com/people/46481faf007737db3866cbbc29529864\",\"account_status\":null,\"agora_published\":false,\"algorithm_right\":null,\"all_verify_apply\":null,\"answer_count\":0,\"articles_count\":0,\"ask_about_count\":0,\"attached_info_bytes\":null,\"auto_sending_creations\":false,\"avatar_url\":\"https://unicom-free.zhimg.com/v2-7fb7f2c7773e2e46cbcff39f7879f042_s.jpg\",\"badge\":[],\"birthday\":null,\"business\":null,\"columns_count\":0,\"cover_url\":null,\"created_at\":0,\"creator_info\":null,\"has_daily_recommend_permission\":false,\"description\":null,\"draft_count\":0,\"edu_member_tag\":null,\"educations\":null,\"email\":null,\"employments\":null,\"exposed_medal\":null,\"favorite_count\":0,\"favorited_count\":0,\"finance_info\":null,\"is_followed\":false,\"follower_count\":0,\"is_following\":false,\"following_columns_count\":0,\"following_count\":0,\"following_favlists_count\":0,\"following_question_count\":0,\"following_topic_count\":0,\"friendly_score\":0.0,\"gender\":1,\"headline\":\"认真而有趣的列文虎克\",\"hosted_live_count\":0,\"id\":\"46481faf007737db3866cbbc29529864\",\"i_articles_count\":0,\"is_active\":false,\"is_advertiser\":false,\"is_apply_renamed\":false,\"is_baned\":false,\"is_blocking\":false,\"is_activity_blocked\":false,\"is_bind_sina\":false,\"is_bind_phone\":false,\"is_enable_double_click_voteup\":false,\"is_enable_spokesman_theme\":false,\"is_enable_watermark\":false,\"is_force_renamed\":false,\"is_force_reset_password\":false,\"is_hanged\":false,\"is_invited\":false,\"is_locked\":false,\"is_event14d_member\":false,\"is_noti_reset_password\":false,\"is_org\":false,\"is_professional\":false,\"is_realname\":false,\"is_subscribing\":false,\"is_unicom_free\":false,\"locations\":null,\"marked_answers_count\":0,\"marked_answers_text\":null,\"mcn_user_info\":null,\"name\":\"锦曦日\",\"open_ebook_feature\":false,\"oppose_right\":null,\"org_detail\":null,\"participated_live_count\":0,\"phone_noull,\"pin_count\":0,\"pin_show_educations\":null,\"pins_count\":0,\"push_channel\":null,\"qq_weibo_name\":null,\"qq_weibo_url\":null,\"question_count\":0,\"reaction_count\":0,\"reactions_count\":0,\"recommend_msg\":null,\"renamed_fullname\":null,\"answered_num\":0,\"shared_count\":0,\"sina_weibo_name\":null,\"sina_weibo_url\":null,\"thanked_count\":0,\"total_creation_count\":0,\"total_favorite_count\":0,\"total_following_count\":0,\"uid\":0,\"url_token\":\"jin-xi-ri-52\",\"use_default_avatar\":false,\"user_type\":\"people\",\"vip_info\":{\"entrance\":null,\"is_vip\":true,\"rename_days\":0,\"vip_icon\":{\"night_mode_url\":\"https://unicom-free.zhimg.com/v2-c9686ff064ea3579730756ac6c289978_r.png\",\"url\":\"https://unicom-free.zhimg.com/v2-4812630bc27d642f7cafcd6cdeca3d7a_r.png\"},\"widget\":null},\"voteup_count\":0,\"infinity\":null,\"zvideo_count\":0},\"collection\":null,\"question\":{\"commercial\":false,\"normal\":true,\"org\":false,\"type\":\"question\",\"url\":\"https://api.zhihu.com/questions/394460693\",\"admin_closed_comment\":false,\"annotation_detail\":null,\"answer_count\":0,\"tags\":null,\"thumbnail_info\":null,\"answer_thumbnail_urls\":null,\"answerer_avatar_urls\":null,\"answers\":null,\"attached_info_bytes\":null,\"author\":null,\"circle_info\":null,\"collapsed_answer_count\":0,\"comment_count\":0,\"comment_permission\":null,\"can_comment\":null,\"created\":1589325202,\"detail\":null,\"draft\":null,\"encourage_video_answer\":null,\"excerpt\":null,\"follower_count\":0,\"has_publishing_draft\":false,\"header_info\":null,\"id\":394460693,\"allow_delete\":false,\"is_editable\":false,\"is_following\":false,\"is_reportable\":false,\"is_topic_active_answerer\":false,\"meta_related_topics\":null,\"mute_info\":null,\"name\":null,\"question_type\":\"normal\",\"redirection\":null,\"relationship\":{\"is_anonymous\":false,\"is_author\":false,\"is_delayed\":false,\"is_favorited\":false,\"is_following\":false,\"is_liked\":false,\"is_nothelp\":false,\"is_thanked\":false,\"my_answer\":null,\"reaction_type\":null,\"voting\":0},\"review_info\":null,\"slideshow_answer\":null,\"status\":null,\"suggest_edit\":null,\"thumbnails\":null,\"title\":\"被称为对称狂魔的岸本，在火影忍者中有过哪l,\"thumbnails_v2\":null,\"topics\":null,\"updated_time\":1589325202,\"visit_count\":0},\"collaboration_status\":null,\"collapse_reason\":null,\"collapsed_counts\":0,\"collection_count\":0,\"collections\":null,\"comment_count\":4,\"comment_permission\":null,\"can_comment\":null,\"content\":null,\"created_time\":1589434655,\"decorative_labels\":[],\"draft_title\":null,\"editable_content\":null,\"excerpt\":\"说岸本是对称狂魔，是因为岸本在人物设计方面非常讲究“对立化”，包括佐助这个角色设计的初衷也是为[图片] 譬如《火影》中最主打的 兄弟宿命、伙伴羁绊的对称，上至远古时期的阿修罗因陀罗兄弟俩，中到忍村初期的柱间和斑，下有主角年代的鸣人佐助，并且在鸣人佐助这一ce\":null,\"has_publishing_draft\":false,\"has_sync_club_post\":false,\"hermes_label\":null,\"id\":1222017732,\"is_collapsed\":false,\"is_copyable\":false,\"is_mine\":false,\"is_sticky\":false,\"is_topic_active_answerer\":false,\"label_info\":{\"foreground_color\":{\"alpha\":1.0,\"group\":\"GYL02A\"},\"icon_url\":\"https://unicom-free.zhimg.com/v2-d66dabdf15e6f8f42919ccb29e8e2ecb_r.png\",\"text\":\"圆桌精选\",\"type\":\"roundtable\"},\"pagination_info\":null,\"pin_content\":null,\"pin_content_thumbnails\":n\"relationship\":{\"is_anonymous\":false,\"is_author\":false,\"is_delayed\":false,\"is_favorited\":false,\"is_following\":false,\"is_liked\":false,\"is_nothelp\":false,\"is_thanked\":false,\"my_answer\":null,\"reaction_type\":null,\"voting\":0},\"relevant_info\":{\"is_relevant\":false,\"relevant_text\":\"\"},\"review_info\":null,\"reward_info\":null,\"sticky_info\":\"\",\"suggest_edit\":null,\"thanks_count\":6,\"thumbnail\":null,\"thumbnail_extra_info\":null,\"title\":null,\"topic_tag\":null,\"topic_thumbnails\":null,\"topic_thumbnails_extra_info\":null,\"updated_time\":1589434893,\"video_info\":null,\"visit_count\":0,\"voteup_count\":55,\"wow_badge\":null}, extra_answer_id=1222017732, extra_question_id=394460693, key_router_module=content}]\n" +
+            "                    mContainer=com.zhihu.android.answer.widget.VerticalViewPager{bd5cf40 VFED..... ........ 0,0-1080,2097 #5}\n" +
+            "                    mView=com.zhihu.android.base.widget.ZHFrameLayout{3034ab3 V.E...... ........ 1080,0-2160,2097}\n" +
+            "                    mInnerView=com.zhihu.android.base.widget.ZHFrameLayout{3034ab3 V.E...... ........ 1080,0-2160,2097}\n" +
+            "                    Child FragmentManager{111d283 in AnswerFragment{f0ce21a}}:\n" +
+            "                      FragmentManager misc state:\n" +
+            "                        mHost=androidx.fragment.app.ea@b78d7e8\n" +
+            "                        mContainer=androidx.fragment.app.d\$3@70cbc00\n" +
+            "                        mParent=AnswerFragment{f0ce21a (b9405cb2-d64b-4355-a9fa-d1f1e1e56074) id=0x5}\n" +
             "                        mCurState=4 mStateSaved=false mStopped=false mDestroyed=false\n" +
             "                Added Fragments:\n" +
-            "                  #0: ViewModelHolder{573c847 #0 class com.xflag.store.view.ViewModelHolder}\n" +
+            "                  #0: AnswerFragment{d60e709 (ead4aa11-9e06-40b7-b349-c126067fd080) id=0x5}\n" +
+            "                  #1: AnswerFragment{f0ce21a (b9405cb2-d64b-4355-a9fa-d1f1e1e56074) id=0x5}\n" +
             "                FragmentManager misc state:\n" +
-            "                  mHost=android.support.v4.app.FragmentActivity HostCallbacks@8298529\n" +
-            "                  mContainer=android.support.v4.app.Fragment2@39fe612\n" +
-            "                  mParent=D0101NewsFragment{dbb061 #1 id=0x7f0900f9}\n" +
+            "                  mHost=androidx.fragment.app.ea@b78d7e8\n" +
+            "                  mContainer=androidx.fragment.app.d\$3@9b43c39\n" +
+            "                  mParent=AnswerPagerFragment{2f8d81c (562209fc-561d-46ed-b733-8bd900d1e958) id=0x7f0a0fab host}\n" +
             "                  mCurState=4 mStateSaved=false mStopped=false mDestroyed=false\n" +
             "          Added Fragments:\n" +
-            "            #0: ViewModelHolder{ecbd9ba #0 class com.xflag.store.view.ViewModelHolder}\n" +
-            "            #1: D0101NewsFragment{dbb061 #1 id=0x7f0900f9}\n" +
-            "          Fragments Created Menus:\n" +
-            "            #0: D0101NewsFragment{dbb061 #1 id=0x7f0900f9}\n" +
+            "            #0: AnswerPagerFragment{2f8d81c (562209fc-561d-46ed-b733-8bd900d1e958) id=0x7f0a0fab host}\n" +
             "          FragmentManager misc state:\n" +
-            "            mHost=android.support.v4.app.FragmentActivity HostCallbacks@8298529\n" +
-            "            mContainer=android.support.v4.app.Fragment2@71aa1e3\n" +
-            "            mParent=B0101NavigationFragment{f2e69dc #1 id=0x7f0900f9}\n" +
+            "            mHost=androidx.fragment.app.ea@b78d7e8\n" +
+            "            mContainer=androidx.fragment.app.d\$3@92d327e\n" +
+            "            mParent=ParentFragment{7fecd0b (73a8529b-e1c7-4c21-81af-2e569d73a59c) id=0x7f0a089e HostActivity::ParentFragment}\n" +
             "            mCurState=4 mStateSaved=false mStopped=false mDestroyed=false\n" +
             "    Added Fragments:\n" +
-            "      #0: ViewModelHolder{ab6d2b0 #0 class com.xflag.store.view.ViewModelHolder}\n" +
-            "      #1: B0101NavigationFragment{f2e69dc #1 id=0x7f0900f9}\n" +
-            "    Fragments Created Menus:\n" +
-            "      #0: B0101NavigationFragment{f2e69dc #1 id=0x7f0900f9}\n" +
+            "      #0: ParentFragment{7fecd0b (73a8529b-e1c7-4c21-81af-2e569d73a59c) id=0x7f0a089e HostActivity::ParentFragment}\n" +
             "    FragmentManager misc state:\n" +
-            "      mHost=android.support.v4.app.FragmentActivity HostCallbacks@8298529\n" +
-            "      mContainer=android.support.v4.app.FragmentActivity HostCallbacks@8298529\n" +
+            "      mHost=androidx.fragment.app.ea@b78d7e8\n" +
+            "      mContainer=androidx.fragment.app.ea@b78d7e8\n" +
             "      mCurState=4 mStateSaved=false mStopped=false mDestroyed=false\n"
 
-    val logs = message.reader().readLines()
-    val list = ArrayList<String>()
-    var hasFragments = false
-    for (s in logs) {
-        if (hasFragments) {
-            if (s.contains(Regex("#[0-9]:"))) list.add(s)
-        } else {
-            hasFragments = s.contains(Regex("Local FragmentActivity.*State:"))
-        }
-    }
-
-    val map = LinkedHashMap<Int, ArrayList<FragmentLogInfo>>()
-    var lastSpace = getLeftSpaceNum(list.first())
-    var lastFragment = FragmentLogInfo(list.first(), ArrayList())
-    map[lastSpace] = arrayListOf(lastFragment)
-
-    for (i in 1..list.lastIndex) {
-        val str = list[i]
-        val space = getLeftSpaceNum(str)
-        val info = FragmentLogInfo(list[i], ArrayList())
-        if (map.containsKey(space)) {
-            map[space]?.add(info)
-        } else {
-            map[space] = arrayListOf(info)
-        }
-        when {
-            space > lastSpace -> {
-                info.parentFragment = lastFragment
-                lastFragment.childFragments.add(info)
+    message.split(Regex("Local FragmentActivity.*State:"))
+            .lastOrNull()?.run {
+                val s = reader().readLines()
+                        .filter {
+                            it.contains(Regex("#[0-9]:"))
+                                    || it.contains("Added Fragments:")
+                                    || it.contains("mParent=")
+                        }.joinToString("\n")
+                print(s)
             }
-            space < lastSpace -> {
-                map[space]?.lastOrNull()?.parentFragment?.childFragments?.add(info)
-            }
-            else -> {
-                lastFragment.parentFragment?.childFragments?.add(info)
-            }
-        }
-        lastSpace = space
-        lastFragment = info
-    }
-
-    map.first().value.forEach {
-        print("${it.name} \n ${it.childFragments.toString()}")
-    }
-}
-
-class FragmentLogInfo(
-        val name: String,
-        val childFragments: ArrayList<FragmentLogInfo>
-) {
-    var parentFragment: FragmentLogInfo? = null
-
 }
 
 private fun getLeftSpaceNum(string: String): Int {
