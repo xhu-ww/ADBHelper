@@ -169,6 +169,7 @@ fun main() {
                 val s = reader().readLines()
                         .filter {
                             it.contains(Regex("#[0-9]:"))
+                                    || it.contains("FragmentManager misc state:")
                                     || it.contains("Added Fragments:")
                                     || it.contains("mParent=")
                         }.joinToString("\n")

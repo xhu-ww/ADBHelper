@@ -10,14 +10,12 @@ class GetActivityFragmentsReceiver(val messageReceiverDone: (fragmentMessage: St
                     var lastSpace = -1
                     var addFragment = false
                     reader().readLines()
-                            .filter {
-                                it.contains(Regex("#[0-9]:"))
-                                        || it.contains("Added Fragments:")
-                                        || it.contains("mParent=")
-                            }.forEach {
+                            .filter { it.contains(Regex(" {2}#[0-9]:")) || it.contains("Added Fragments:") }
+                            .forEach {
+                                print("$it\n")
                                 val space = getLeftSpaceNum(it)
                                 if (it.contains("Added Fragments:")) {
-                                    list.add(" ")
+                                    if (addFragment) map.clear()
                                     addFragment = true
                                 }
                                 if (space < lastSpace && !it.contains("Added Fragments:")) {
