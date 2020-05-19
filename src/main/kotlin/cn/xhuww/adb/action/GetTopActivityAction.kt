@@ -6,7 +6,7 @@ import cn.xhuww.adb.receiver.GetTopActivityReceiver
 import cn.xhuww.adb.view.TopActivityMessageDialogWrapper
 import com.intellij.openapi.actionSystem.AnActionEvent
 
-class GetTopActivityAndFragmentAction : ADBAction() {
+class GetTopActivityAction : ADBAction() {
     override fun actionPerformed(e: AnActionEvent, projectRunData: ProjectRunData) {
         val device = projectRunData.device
         val receiver = GetTopActivityReceiver { packageName, activityName ->

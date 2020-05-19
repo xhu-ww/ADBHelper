@@ -26,4 +26,8 @@ class TopActivityMessageDialogWrapper(
         val action = cancelAction.apply { putValue(DEFAULT_ACTION, true) }
         return arrayOf(action)
     }
+
+    override fun doOKAction() {
+        super.doOKAction()
+    }
 }
