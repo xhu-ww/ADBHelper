@@ -9,7 +9,7 @@ class NormalADBReceiver(private val project: Project) : ADBMessageReceiver() {
         MessageDialog(
                 project,
                 message,
-                "ADB信息",
+                "ADB Message",
                 arrayOf(Messages.CANCEL_BUTTON),
                 0, Messages.getInformationIcon(),
                 true

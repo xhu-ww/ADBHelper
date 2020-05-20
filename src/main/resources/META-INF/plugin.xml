@@ -10,8 +10,13 @@
     4. UrlScheme Test Helper;]]>
     </description>
 
-    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
+    <change-notes><![CDATA[A plug-in based on ADB command, the main functions are as follows:
+    1. Clear debug app data;
+    2. Get the starting time of the activity;
+    3. Get the current Activity and Fragment information of the App;
+    4. UrlScheme Test Helper;]]>
+    </change-notes>
+
     <depends>com.intellij.modules.xml</depends>
     <depends>com.intellij.modules.java</depends>
     <depends>com.intellij.modules.platform</depends>

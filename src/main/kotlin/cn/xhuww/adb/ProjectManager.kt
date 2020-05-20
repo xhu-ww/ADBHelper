@@ -12,7 +12,7 @@ import org.jetbrains.android.facet.AndroidFacet
 import org.jetbrains.android.sdk.AndroidSdkUtils
 import org.jetbrains.android.util.AndroidUtils
 
-class ProjectManager(val project: Project) {
+class ProjectManager(private val project: Project) {
     private val androidBridge: AndroidDebugBridge? by lazy {
         AndroidSdkUtils.getDebugBridge(project)
     }

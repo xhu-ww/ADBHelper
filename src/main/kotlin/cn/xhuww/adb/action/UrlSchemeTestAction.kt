@@ -18,6 +18,6 @@ class UrlSchemeTestAction : ADBAction() {
             }
         }
 
-        UrlSchemeInputDialog("UrlSchemeTest", "UrlSchemeTest", testUrlScheme).show()
+        UrlSchemeInputDialog("After inputting UrlScheme, click the Test button.", "UrlSchemeTest", testUrlScheme).show()
     }
 }
