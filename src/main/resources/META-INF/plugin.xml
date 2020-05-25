@@ -1,30 +1,41 @@
 <idea-plugin>
     <id>cn.xhuww.ADBHelper</id>
     <name>ADBHelper</name>
+    <version>1.1.1</version>
     <vendor email="xhuww2012@gmail.com" url="http://www.xhuww.cn">xhuww</vendor>
 
-    <description><![CDATA[A plug-in based on ADB command, the main functions are as follows:
-    1. Clear debug app data;
-    2. Get the starting time of the activity;
-    3. Get the current Activity and Fragment information of the App;
-    4. UrlScheme Test Helper;]]>
+    <description>
+        <![CDATA[
+        A plug-in based on ADB, the main functions :<br/>
+        <ul>
+            <li>Clear debug app data</li>
+            <li>Get the starting time of the activity</li>
+            <li>Get the current Activity and Fragment information of the App</li>
+            <li>UrlScheme Test Helper</li>
+        </ul>
+        ]]>
     </description>
-
-    <change-notes><![CDATA[A plug-in based on ADB command, the main functions are as follows:
-    1. Clear debug app data;
-    2. Get the starting time of the activity;
-    3. Get the current Activity and Fragment information of the App;
-    4. UrlScheme Test Helper;]]>
+    <change-notes>
+        <![CDATA[
+        <b>1.1.1</b>
+        <ul>
+            <li>Modify the supported IDE version</li>
+            <li>Fixed some bugs</li>
+        </ul>
+        <b>1.1.0</b>
+        <ul>
+            <li>Clear debug app data</li>
+            <li>Get the starting time of the activity</li>
+            <li>Get the current Activity and Fragment information of the App</li>
+            <li>UrlScheme Test Helper</li>
+        </ul>
+        ]]>
     </change-notes>
 
     <depends>com.intellij.modules.xml</depends>
     <depends>com.intellij.modules.java</depends>
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
-    </extensions>
 
     <actions>
 
@@ -33,20 +44,20 @@
 
             <action id="cn.xhuww.adb.action.ClearAppDataAction"
                     class="cn.xhuww.adb.action.ClearAppDataAction"
-                    text="ClearAppData" description="ClearAppDataAction">
+                    text="Clear App Data" description="ClearAppDataAction">
             </action>
 
             <action id="cn.xhuww.adb.action.GetAppStartTimeAction" class="cn.xhuww.adb.action.GetAppStartTimeAction"
-                    text="AppStartTime" description="Start app and capture app start time">
+                    text="App Start Time" description="Start app and capture app start time">
             </action>
 
             <action id="cn.xhuww.adb.action.GetTopActivityAction"
                     class="cn.xhuww.adb.action.GetTopActivityAction"
-                    text="TopActivity" description="Get top activity and its fragment">
+                    text="Top Activity" description="Get top activity and its fragment">
             </action>
 
             <action id="cn.xhuww.adb.action.UrlSchemeTestAction" class="cn.xhuww.adb.action.UrlSchemeTestAction"
-                    text="UrlSchemeTest" description="UrlSchemeTest">
+                    text="URL Scheme Test" description="UrlSchemeTest">
             </action>
         </group>
     </actions>

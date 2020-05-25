@@ -31,7 +31,7 @@ class ProjectManager(private val project: Project) {
         return try {
             GradleSyncState.getInstance(project).isSyncInProgress
         } catch (t: Throwable) {
-            error("Couldn't determine if a gradle sync is in progress")
+            false
         }
     }
 
@@ -51,10 +51,10 @@ class ProjectManager(private val project: Project) {
 
     fun getProjectRunData(): ProjectRunData {
         if (GradleSyncState.getInstance(project).isSyncInProgress) {
-            error("Gradle sync task is running")
+            showErrorDialog("Gradle sync task is running", true)
         }
         if (!bridgeIsReady()) {
-            error("Currently no device is connected")
+            showErrorDialog("Currently no device is connected", true)
         }
         val facet = getAndroidFacet()
         val device = getConnectedDevice()

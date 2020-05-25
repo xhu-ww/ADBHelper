@@ -13,6 +13,6 @@ class NormalADBReceiver(private val project: Project) : ADBMessageReceiver() {
                 arrayOf(Messages.CANCEL_BUTTON),
                 0, Messages.getInformationIcon(),
                 true
-        )
+        ).show()
     }
 }
