@@ -1,8 +1,9 @@
 <idea-plugin>
     <id>cn.xhuww.ADBHelper</id>
     <name>ADBHelper</name>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
     <vendor email="xhuww2012@gmail.com" url="http://www.xhuww.cn">xhuww</vendor>
+    <idea-version since-build="192"/>
 
     <description>
         <![CDATA[
@@ -17,6 +18,10 @@
     </description>
     <change-notes>
         <![CDATA[
+        <b>1.1.2</b>
+        <ul>
+            <li>Modify the supported IDE version</li>
+        </ul>
         <b>1.1.1</b>
         <ul>
             <li>Modify the supported IDE version</li>
@@ -32,7 +37,6 @@
         ]]>
     </change-notes>
 
-    <depends>com.intellij.modules.xml</depends>
     <depends>com.intellij.modules.java</depends>
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>
@@ -53,7 +57,7 @@
 
             <action id="cn.xhuww.adb.action.GetTopActivityAction"
                     class="cn.xhuww.adb.action.GetTopActivityAction"
-                    text="Top Activity" description="Get top activity and its fragment">
+                    text="Get Top Activity" description="Get top activity and its fragment">
             </action>
 
             <action id="cn.xhuww.adb.action.UrlSchemeTestAction" class="cn.xhuww.adb.action.UrlSchemeTestAction"
