@@ -19,6 +19,7 @@ dependencies {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     pluginName 'ADBHelper'
+    version '2019.2'
     updateSinceUntilBuild false
     plugins 'android', 'java'
 }

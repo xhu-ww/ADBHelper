@@ -51,7 +51,7 @@ class ProjectManager(private val project: Project) {
 
     fun getProjectRunData(): ProjectRunData {
         if (GradleSyncState.getInstance(project).isSyncInProgress) {
-            showErrorDialog("Gradle sync task is running", true)
+            showErrorDialog("Gradle sync task is running,Please wait for it to finish", true)
         }
         if (!bridgeIsReady()) {
             showErrorDialog("Currently no device is connected", true)

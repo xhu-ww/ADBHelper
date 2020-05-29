@@ -12,7 +12,6 @@ class GetActivityFragmentsReceiver(val messageReceiverDone: (fragmentMessage: St
                     reader().readLines()
                             .filter { it.contains(Regex(" {2}#[0-9]:")) || it.contains("Added Fragments:") }
                             .forEach {
-                                print("$it\n")
                                 val space = getLeftSpaceNum(it)
                                 if (it.contains("Added Fragments:")) {
                                     if (addFragment) map.clear()
