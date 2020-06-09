@@ -1,23 +1,21 @@
 package cn.xhuww.adb.action
 
-import cn.xhuww.adb.data.ProjectRunData
+import cn.xhuww.adb.ProjectRunData
 import cn.xhuww.adb.receiver.NormalADBReceiver
 import cn.xhuww.adb.view.UrlSchemeInputDialog
 import com.intellij.openapi.actionSystem.AnActionEvent
 
 class UrlSchemeTestAction : ADBAction() {
     override fun actionPerformed(e: AnActionEvent, projectRunData: ProjectRunData) {
-
-        val testUrlScheme: (urlScheme: String?) -> Unit = {
-            try {
-                it ?: error("urlScheme is null")
-                val shell = "am start -a android.intent.action.VIEW -d$it"
-                projectRunData.device.executeShellCommand(shell, NormalADBReceiver(projectRunData.project))
-            } catch (e: Exception) {
-                error(e)
-            }
+        val testUrlScheme: (urlScheme: String) -> Unit = {
+            val shell = "am start -a android.intent.action.VIEW -d $it"
+            projectRunData.device.executeShellCommand(shell, NormalADBReceiver(projectRunData.project))
         }
 
-        UrlSchemeInputDialog("After inputting UrlScheme, click the Test button.", "UrlSchemeTest", testUrlScheme).show()
+        UrlSchemeInputDialog(
+            "Click the test button after entering the url scheme.",
+            "URL Scheme Test",
+            testUrlScheme
+        ).show()
     }
 }

@@ -1,8 +1,8 @@
 package cn.xhuww.adb
 
-import cn.xhuww.adb.data.ProjectRunData
 import com.android.ddmlib.AndroidDebugBridge
 import com.android.ddmlib.IDevice
+import com.android.tools.idea.gradle.project.model.AndroidModuleModel
 import com.android.tools.idea.gradle.project.sync.GradleSyncState
 import com.android.tools.idea.run.DeviceCount
 import com.android.tools.idea.run.DeviceSelectionUtils
@@ -21,46 +21,46 @@ class ProjectManager(private val project: Project) {
         androidBridge?.devices?.asList() ?: emptyList()
     }
 
-    private val androidFacets: List<AndroidFacet> by lazy {
-        AndroidUtils.getApplicationFacets(project)
-    }
-
-    fun bridgeIsReady(): Boolean = androidBridge?.let { it.isConnected && it.hasInitialDeviceList() } ?: false
-
-    fun isGradleSyncInProgress(): Boolean {
-        return try {
-            GradleSyncState.getInstance(project).isSyncInProgress
-        } catch (t: Throwable) {
-            false
-        }
-    }
-
-    fun getAndroidFacet(): AndroidFacet? {
-        //TODO may need to add a selector
+    private fun getAndroidFacet(): AndroidFacet? {
         return AndroidUtils.getApplicationFacets(project).firstOrNull()
     }
 
-    fun getConnectedDevice(): IDevice? {
-        if (connectedDevices.size > 1) {
-            val facet = getAndroidFacet() ?: return null
-            return DeviceSelectionUtils.chooseRunningDevice(facet, UsbDeviceFilter(), DeviceCount.SINGLE)?.firstOrNull()
+    private fun getConnectedDevice(): IDevice? {
+        return if (connectedDevices.size > 1) {
+            getAndroidFacet()?.let {
+                DeviceSelectionUtils.chooseRunningDevice(it, UsbDeviceFilter(), DeviceCount.SINGLE)?.firstOrNull()
+            }
         } else {
-            return connectedDevices.firstOrNull()
+            connectedDevices.firstOrNull()
         }
     }
 
-    fun getProjectRunData(): ProjectRunData {
+    fun getProjectRunData(): ProjectRunData? {
         if (GradleSyncState.getInstance(project).isSyncInProgress) {
-            showErrorDialog("Gradle sync task is running,Please wait for it to finish", true)
+            showErrorDialog("Gradle sync task is running,Please wait for it to finish")
+            return null
         }
-        if (!bridgeIsReady()) {
-            showErrorDialog("Currently no device is connected", true)
-        }
+
         val facet = getAndroidFacet()
         val device = getConnectedDevice()
-        if (facet == null || device == null) {
-            error("Current project was not compiled successfully")
+        if (facet == null) {
+            showErrorDialog("Project was not compiled successfully")
+            return null
+        }
+        if (device == null) {
+            showErrorDialog("No device connected")
+            return null
         }
         return ProjectRunData(project, facet, device)
     }
+}
+
+data class ProjectRunData(
+    val project: Project,
+    val facet: AndroidFacet,
+    val device: IDevice
+) {
+    var packageName: String? = null
+        get() = AndroidModuleModel.get(facet)?.applicationId
+        private set
 }

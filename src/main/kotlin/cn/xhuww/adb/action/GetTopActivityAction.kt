@@ -1,6 +1,6 @@
 package cn.xhuww.adb.action
 
-import cn.xhuww.adb.data.ProjectRunData
+import cn.xhuww.adb.ProjectRunData
 import cn.xhuww.adb.receiver.GetActivityFragmentsReceiver
 import cn.xhuww.adb.receiver.GetTopActivityReceiver
 import cn.xhuww.adb.view.TopActivityMessageDialogWrapper
@@ -14,22 +14,13 @@ class GetTopActivityAction : ADBAction() {
             val handleMessage: (fragmentInfos: String) -> Unit = {
                 TopActivityMessageDialogWrapper(packageName, activityName, it).show()
             }
-
-            try {
-                //2. 获取Activity 的详细信息
-                val shell = "dumpsys activity $packageName/$activityName"
-                device.executeShellCommand(shell, GetActivityFragmentsReceiver(handleMessage))
-            } catch (e: Exception) {
-                error(e)
-            }
+            //2. 获取Activity 的详细信息
+            val shell = "dumpsys activity $packageName/$activityName"
+            device.executeShellCommand(shell, GetActivityFragmentsReceiver(handleMessage))
         }
 
-        try {
-            //1. 获取当前画面的Activity名称
-            val shell = "dumpsys window | grep mCurrentFocus"
-            projectRunData.device.executeShellCommand(shell, receiver)
-        } catch (e: Exception) {
-            error(e)
-        }
+        //1. 获取当前画面的Activity名称
+        val shell = "dumpsys window | grep mCurrentFocus"
+        projectRunData.device.executeShellCommand(shell, receiver)
     }
 }

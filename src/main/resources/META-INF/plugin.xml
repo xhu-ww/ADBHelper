@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>cn.xhuww.ADBHelper</id>
     <name>ADBHelper</name>
-    <version>1.1.2</version>
+    <version>1.1.3</version>
     <vendor email="xhuww2012@gmail.com" url="http://www.xhuww.cn">xhuww</vendor>
     <idea-version since-build="192"/>
 
@@ -9,15 +9,21 @@
         <![CDATA[
         A plug-in based on ADB, the main functions :<br/>
         <ul>
-            <li>Clear debug app data</li>
-            <li>Get the starting time of the activity</li>
-            <li>Get the current Activity and Fragment information of the App</li>
+            <li>Get app start time</li>
+            <li>Quickly clear debug app data</li>
+            <li>Get current activity and fragment information of the App</li>
+            <li>Quickly start the app settings page</li>
             <li>UrlScheme Test Helper</li>
         </ul>
         ]]>
     </description>
     <change-notes>
         <![CDATA[
+        <b>1.1.3</b>
+        <ul>
+            <li>Add the function to start the app settings page</li>
+            <li>Modified error tip</li>
+        </ul>
         <b>1.1.2</b>
         <ul>
             <li>Modify the supported IDE version</li>
@@ -29,9 +35,9 @@
         </ul>
         <b>1.1.0</b>
         <ul>
-            <li>Clear debug app data</li>
-            <li>Get the starting time of the activity</li>
-            <li>Get the current Activity and Fragment information of the App</li>
+            <li>Get app start time</li>
+            <li>Quickly clear debug app data</li>
+            <li>Get current activity and fragment information of the App</li>
             <li>UrlScheme Test Helper</li>
         </ul>
         ]]>
@@ -46,22 +52,26 @@
         <group id="adb_menu" text="ADB" description="ADB helper">
             <add-to-group group-id="MainMenu" anchor="last"/>
 
-            <action id="cn.xhuww.adb.action.ClearAppDataAction"
-                    class="cn.xhuww.adb.action.ClearAppDataAction"
-                    text="Clear App Data" description="ClearAppDataAction">
+            <action id="cn.xhuww.adb.action.GetAppStartTimeAction" class="cn.xhuww.adb.action.GetAppStartTimeAction"
+                    text="Get Start Time" description="Get app start time">
             </action>
 
-            <action id="cn.xhuww.adb.action.GetAppStartTimeAction" class="cn.xhuww.adb.action.GetAppStartTimeAction"
-                    text="App Start Time" description="Start app and capture app start time">
+            <action id="cn.xhuww.adb.action.ClearAppDataAction"
+                    class="cn.xhuww.adb.action.ClearAppDataAction"
+                    text="Clear App Data" description="Quickly clear debug app data">
             </action>
 
             <action id="cn.xhuww.adb.action.GetTopActivityAction"
                     class="cn.xhuww.adb.action.GetTopActivityAction"
-                    text="Get Top Activity" description="Get top activity and its fragment">
+                    text="Get Top Activity" description="Get current Activity and Fragment information of the App">
+            </action>
+
+            <action id="cn.xhuww.adb.action.GoAppSettingAction" class="cn.xhuww.adb.action.GoAppSettingAction"
+                    text="Start App Setting" description="Quickly start the app settings page">
             </action>
 
             <action id="cn.xhuww.adb.action.UrlSchemeTestAction" class="cn.xhuww.adb.action.UrlSchemeTestAction"
-                    text="URL Scheme Test" description="UrlSchemeTest">
+                    text="Url Scheme Test" description="UrlScheme test helper">
             </action>
         </group>
     </actions>
