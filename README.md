@@ -17,9 +17,9 @@ You can use this plugin to do these things
 
 ### For All Apps
 
-The order of operation of this example is
-
 ![image](./image/all_app.gif)
+
+The order of operation of this example is
 
 - UrlScheme Test Helper
 - Get current activity and fragment information of the App
