@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>cn.xhuww.ADBHelper</id>
     <name>ADBHelper</name>
-    <version>1.1.3</version>
+    <version>1.1.4</version>
     <vendor email="xhuww2012@gmail.com" url="http://www.xhuww.cn">xhuww</vendor>
     <idea-version since-build="192"/>
 
@@ -19,6 +19,10 @@
     </description>
     <change-notes>
         <![CDATA[
+        <b>1.1.4</b>
+        <ul>
+            <li>Perfect the plug-in</li>
+        </ul>
         <b>1.1.3</b>
         <ul>
             <li>Add the function to start the app settings page</li>
@@ -66,7 +70,7 @@
                     text="Get Top Activity" description="Get current Activity and Fragment information of the App">
             </action>
 
-            <action id="cn.xhuww.adb.action.GoAppSettingAction" class="cn.xhuww.adb.action.GoAppSettingAction"
+            <action id="cn.xhuww.adb.action.StartAppSettingAction" class="cn.xhuww.adb.action.StartAppSettingAction"
                     text="Start App Setting" description="Quickly start the app settings page">
             </action>
 

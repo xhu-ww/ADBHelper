@@ -3,7 +3,6 @@ package cn.xhuww.adb
 import com.android.ddmlib.AndroidDebugBridge
 import com.android.ddmlib.IDevice
 import com.android.tools.idea.gradle.project.model.AndroidModuleModel
-import com.android.tools.idea.gradle.project.sync.GradleSyncState
 import com.android.tools.idea.run.DeviceCount
 import com.android.tools.idea.run.DeviceSelectionUtils
 import com.android.tools.idea.run.TargetDeviceFilter.UsbDeviceFilter
@@ -36,11 +35,6 @@ class ProjectManager(private val project: Project) {
     }
 
     fun getProjectRunData(): ProjectRunData? {
-        if (GradleSyncState.getInstance(project).isSyncInProgress) {
-            showErrorDialog("Gradle sync task is running,Please wait for it to finish")
-            return null
-        }
-
         val facet = getAndroidFacet()
         val device = getConnectedDevice()
         if (facet == null) {

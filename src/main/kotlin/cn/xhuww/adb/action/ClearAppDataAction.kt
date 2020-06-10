@@ -1,7 +1,7 @@
 package cn.xhuww.adb.action
 
 import cn.xhuww.adb.ProjectRunData
-import cn.xhuww.adb.receiver.NormalADBReceiver
+import cn.xhuww.adb.receiver.ClearAppDataReceiver
 import cn.xhuww.adb.showErrorDialog
 import com.intellij.openapi.actionSystem.AnActionEvent
 
@@ -13,7 +13,7 @@ class ClearAppDataAction : ADBAction() {
                 return
             }
             val shell = "pm clear $packageName"
-            device.executeShellCommand(shell, NormalADBReceiver(project))
+            device.executeShellCommand(shell, ClearAppDataReceiver(project, packageName))
         }
     }
 }

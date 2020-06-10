@@ -1,7 +1,7 @@
 package cn.xhuww.adb.action
 
 import cn.xhuww.adb.ProjectRunData
-import cn.xhuww.adb.receiver.GetActivityFragmentsReceiver
+import cn.xhuww.adb.receiver.GetFragmentsReceiver
 import cn.xhuww.adb.receiver.GetTopActivityReceiver
 import cn.xhuww.adb.view.TopActivityMessageDialogWrapper
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -16,7 +16,7 @@ class GetTopActivityAction : ADBAction() {
             }
             //2. 获取Activity 的详细信息
             val shell = "dumpsys activity $packageName/$activityName"
-            device.executeShellCommand(shell, GetActivityFragmentsReceiver(handleMessage))
+            device.executeShellCommand(shell, GetFragmentsReceiver(handleMessage))
         }
 
         //1. 获取当前画面的Activity名称

@@ -1,6 +1,6 @@
 package cn.xhuww.adb.receiver
 
-class GetActivityFragmentsReceiver(val messageReceiverDone: (fragmentMessage: String) -> Unit) : ADBMessageReceiver() {
+class GetFragmentsReceiver(val messageReceiverDone: (fragmentMessage: String) -> Unit) : ADBReceiver() {
     override fun done(log: String) {
         val list = ArrayList<String>()
         val map = LinkedHashMap<String, String>()

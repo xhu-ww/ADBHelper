@@ -3,7 +3,7 @@ package cn.xhuww.adb.receiver
 import com.android.ddmlib.IShellOutputReceiver
 import com.google.common.base.Charsets
 
-open class ADBMessageReceiver : IShellOutputReceiver {
+open class ADBReceiver : IShellOutputReceiver {
     private val stringBuffer = StringBuilder()
 
     override fun addOutput(data: ByteArray, offset: Int, length: Int) {
@@ -17,5 +17,5 @@ open class ADBMessageReceiver : IShellOutputReceiver {
 
     override fun isCancelled(): Boolean = false
 
-    open fun done(log: String) {}
+    open fun done(message: String) {}
 }
