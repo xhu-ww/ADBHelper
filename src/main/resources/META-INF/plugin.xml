@@ -11,7 +11,8 @@
         <ul>
             <li>Get app start time</li>
             <li>Quickly clear debug app data</li>
-            <li>Get current activity and fragment information of the App</li>
+            <li>Get app id</li>
+            <li>Get current activity and fragment information of the app</li>
             <li>Quickly start the app settings page</li>
             <li>UrlScheme Test Helper</li>
         </ul>
@@ -22,7 +23,7 @@
         <b>1.1.4</b>
         <ul>
             <li>Perfect the plug-in</li>
-            <li>Supported Android Studio 3.3+/li>
+            <li>Supported Android Studio 3.3+ </li>
         </ul>
         <b>1.1.3</b>
         <ul>
