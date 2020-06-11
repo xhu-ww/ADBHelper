@@ -1,11 +1,11 @@
 package cn.xhuww.adb.receiver
 
 class GetFragmentsReceiver(val messageReceiverDone: (fragmentMessage: String) -> Unit) : ADBReceiver() {
-    override fun done(log: String) {
+    override fun done(message: String) {
         val list = ArrayList<String>()
         val map = LinkedHashMap<String, String>()
 
-        log.split(Regex("Local FragmentActivity.*State:"))
+        message.split(Regex("Local FragmentActivity.*State:"))
                 .lastOrNull()?.run {
                     var lastSpace = -1
                     var addFragment = false

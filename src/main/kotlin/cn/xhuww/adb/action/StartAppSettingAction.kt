@@ -12,7 +12,7 @@ class StartAppSettingAction : ADBAction() {
         val receiver = GetTopActivityReceiver { packageName, _ ->
             //2. 启动App设置画面
             val shell = "am start -a android.settings.APPLICATION_DETAILS_SETTINGS -d package:${packageName}"
-            device.executeShellCommand(shell, MessageReceiver(projectRunData.project))
+            device.executeShellCommand(shell, MessageReceiver())
         }
 
         //1. 获取当前App 包名

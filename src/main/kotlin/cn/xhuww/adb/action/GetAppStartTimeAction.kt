@@ -1,7 +1,7 @@
 package cn.xhuww.adb.action
 
 import cn.xhuww.adb.ProjectRunData
-import cn.xhuww.adb.receiver.MessageReceiver
+import cn.xhuww.adb.receiver.GetAppStartTimeReceiver
 import cn.xhuww.adb.showErrorDialog
 import com.android.tools.idea.run.activity.DefaultActivityLocator
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -15,7 +15,7 @@ class GetAppStartTimeAction : ADBAction() {
             }
             val defaultActivity = DefaultActivityLocator(facet).getQualifiedActivityName(device)
             val shell = "am start -W $packageName/$defaultActivity"
-            device.executeShellCommand(shell, MessageReceiver(project))
+            device.executeShellCommand(shell, GetAppStartTimeReceiver())
         }
     }
 }
