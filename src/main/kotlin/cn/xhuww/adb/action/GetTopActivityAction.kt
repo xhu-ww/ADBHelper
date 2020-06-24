@@ -3,7 +3,7 @@ package cn.xhuww.adb.action
 import cn.xhuww.adb.ProjectRunData
 import cn.xhuww.adb.receiver.GetFragmentsReceiver
 import cn.xhuww.adb.receiver.GetTopActivityReceiver
-import cn.xhuww.adb.view.TopActivityMessageDialogWrapper
+import cn.xhuww.adb.view.TopActivityMessageDialog
 import com.intellij.openapi.actionSystem.AnActionEvent
 
 class GetTopActivityAction : ADBAction() {
@@ -12,7 +12,7 @@ class GetTopActivityAction : ADBAction() {
         val receiver = GetTopActivityReceiver { packageName, activityName ->
             //3. 展示详细信息
             val handleMessage: (fragmentInfos: String) -> Unit = {
-                TopActivityMessageDialogWrapper(packageName, activityName, it).show()
+                TopActivityMessageDialog(packageName, activityName, it).show()
             }
             //2. 获取Activity 的详细信息
             val shell = "dumpsys activity $packageName/$activityName"

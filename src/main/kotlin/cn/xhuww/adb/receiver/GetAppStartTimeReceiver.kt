@@ -1,21 +1,22 @@
 package cn.xhuww.adb.receiver
 
-import cn.xhuww.adb.ADB_MESSAGE_TITLE
-import com.intellij.openapi.ui.Messages
+import cn.xhuww.adb.view.AppStartTimeMessageDialog
 
 class GetAppStartTimeReceiver : ADBReceiver() {
     override fun done(message: String) {
-        val mainMessage = message.reader()
-            .readLines()
-            .filter { !it.startsWith("Starting: Intent") }
-            .joinToString("\n")
+        var activityName = ""
+        var time = ""
 
-        Messages.showDialog(
-            mainMessage,
-            ADB_MESSAGE_TITLE,
-            arrayOf(Messages.CANCEL_BUTTON),
-            0,
-            Messages.getInformationIcon()
-        )
+        message.reader()
+            .readLines()
+            .forEach {
+                if (it.startsWith("Activity:")) {
+                    activityName = it.split(": ").last()
+                } else if (it.startsWith("TotalTime:")) {
+                    time = it.split(": ").last() + " ms"
+                }
+            }
+
+        AppStartTimeMessageDialog(activityName, time).show()
     }
 }

@@ -5,7 +5,7 @@ import com.intellij.openapi.ui.DialogWrapper
 import javax.swing.Action
 import javax.swing.JComponent
 
-class TopActivityMessageDialogWrapper(
+class TopActivityMessageDialog(
         private val packageName: String,
         private val activityName: String,
         private val fragmentMessage: String

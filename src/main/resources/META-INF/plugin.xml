@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>cn.xhuww.ADBHelper</id>
     <name>ADBHelper</name>
-    <version>1.1.4</version>
+    <version>1.1.5</version>
     <vendor email="xhuww2012@gmail.com" url="http://www.xhuww.cn">xhuww</vendor>
     <idea-version since-build="181"/>
 
@@ -9,9 +9,10 @@
         <![CDATA[
         A plug-in based on ADB, the main functions :<br/>
         <ul>
+            <li>Get app id</li>
             <li>Get app start time</li>
             <li>Quickly clear debug app data</li>
-            <li>Get app id</li>
+            <li>Get the connected device information</li>
             <li>Get current activity and fragment information of the app</li>
             <li>Quickly start the app settings page</li>
             <li>UrlScheme Test Helper</li>
@@ -20,6 +21,11 @@
     </description>
     <change-notes>
         <![CDATA[
+        <b>1.1.5</b>
+        <ul>
+            <li>Improve existing functions</li>
+            <li>Add the function to get connected device information</li>
+        </ul>
         <b>1.1.4</b>
         <ul>
             <li>Perfect the plug-in</li>
@@ -57,6 +63,11 @@
 
         <group id="adb_menu" text="ADB" description="ADB helper">
             <add-to-group group-id="MainMenu" anchor="last"/>
+
+            <action id="cn.xhuww.adb.action.GetDeviceInfoAction"
+                    class="cn.xhuww.adb.action.GetDeviceInfoAction"
+                    text="Device Info" description="Get the connected device information">
+            </action>
 
             <action id="cn.xhuww.adb.action.GetAppStartTimeAction" class="cn.xhuww.adb.action.GetAppStartTimeAction"
                     text="Get Start Time" description="Get app start time">
