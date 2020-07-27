@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>cn.xhuww.ADBHelper</id>
     <name>ADBHelper</name>
-    <version>1.1.5</version>
+    <version>1.1.6</version>
     <vendor email="xhuww2012@gmail.com" url="http://www.xhuww.cn">xhuww</vendor>
     <idea-version since-build="181"/>
 
@@ -9,18 +9,22 @@
         <![CDATA[
         A plug-in based on ADB, the main functions :<br/>
         <ul>
-            <li>Get app id</li>
+            <li>Get app information</li>
+            <li>Get device information</li>
             <li>Get app start time</li>
             <li>Quickly clear debug app data</li>
-            <li>Get the connected device information</li>
-            <li>Get current activity and fragment information of the app</li>
             <li>Quickly start the app settings page</li>
+            <li>Get current activity and fragment information of the app</li>
             <li>UrlScheme Test Helper</li>
         </ul>
         ]]>
     </description>
     <change-notes>
         <![CDATA[
+        <b>1.1.6</b>
+        <ul>
+            <li>Add the function to get app information</li>
+        </ul>
         <b>1.1.5</b>
         <ul>
             <li>Improve existing functions</li>
@@ -64,9 +68,14 @@
         <group id="adb_menu" text="ADB" description="ADB helper">
             <add-to-group group-id="MainMenu" anchor="last"/>
 
+            <action id="cn.xhuww.adb.action.GetAppInfoAction"
+                    class="cn.xhuww.adb.action.GetAppInfoAction"
+                    text="App Information" description="Get current app information">
+            </action>
+
             <action id="cn.xhuww.adb.action.GetDeviceInfoAction"
                     class="cn.xhuww.adb.action.GetDeviceInfoAction"
-                    text="Device Info" description="Get the connected device information">
+                    text="Device Information" description="Get the connected device information">
             </action>
 
             <action id="cn.xhuww.adb.action.GetAppStartTimeAction" class="cn.xhuww.adb.action.GetAppStartTimeAction"
@@ -76,11 +85,6 @@
             <action id="cn.xhuww.adb.action.ClearAppDataAction"
                     class="cn.xhuww.adb.action.ClearAppDataAction"
                     text="Clear App Data" description="Quickly clear debug app data">
-            </action>
-
-            <action id="cn.xhuww.adb.action.GetAppIdAction"
-                    class="cn.xhuww.adb.action.GetAppIdAction"
-                    text="Get App Id" description="Get current app id">
             </action>
 
             <action id="cn.xhuww.adb.action.GetTopActivityAction"
